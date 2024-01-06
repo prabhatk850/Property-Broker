@@ -9,13 +9,12 @@ import Footer from './Component/Footer'
 function Router () {
   return (
     <BrowserRouter>
+    <Header/>
       <Routes>
         <Route path='*' element={<h1>404 Not Found</h1>} />
-        <Route path='/header' element={<Header />} />
-        <Route path='/footer' element={<Footer />} />
         <Route path='/' element={<Homepage />} />
-      
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }

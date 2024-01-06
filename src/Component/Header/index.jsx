@@ -3,7 +3,7 @@ import Header from './header'
 
 function Index() {
   return (
-    <div>
+    <div style={{position:"sticky",top:"0",zIndex:"1"}}>
         <Header/>
     </div>
   )

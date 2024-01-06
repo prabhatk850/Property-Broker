@@ -50,6 +50,7 @@ padding: 10px 15px;
 color: white;
 font-weight: bold;
 margin-right: 70px;
+box-shadow: 1px 1px 10px 1px #e6e6e6;
 &:hover{
   cursor: pointer;
   background-color: #ff4d4f;
