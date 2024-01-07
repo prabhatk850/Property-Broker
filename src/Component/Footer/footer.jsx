@@ -24,7 +24,10 @@ const Flex1 = styled.div`
 const Div = styled.div`
   margin: 20px 2%;
   font-size: 20px;
-  
+@media (max-width: 767px) {
+  font-size: 12px;
+
+}
 `;
 const Div1 = styled.div`
   margin: 20px 2%;

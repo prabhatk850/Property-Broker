@@ -17,6 +17,11 @@ const Logo= styled(FaHouseChimney)`
 width: 60px;
 height: 60px;
 color: red;
+@media (max-width: 767px) {
+  width: 40px;
+  height: 40px;
+
+}
 `;
 const Login = styled(FaUserNinja)`
   width: 30px;
@@ -32,10 +37,15 @@ const Menu = styled(TiThMenu)`
 `;
 
 const Name= styled.div`
-font-size: 25px;
+font-size: 35px;
 font-weight: 800;
-padding-top: 30px;
 color: black;
+@media (max-width: 767px) {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 `;
 
 const Owner= styled.div`
@@ -56,6 +66,12 @@ box-shadow: 1px 1px 10px 1px #e6e6e6;
   background-color: #ff4d4f;
 
 }
+@media (max-width: 767px) {
+  font-size: 10px;
+  padding: 5px 10px;
+  margin-right: 20px;
+
+}
 `;
 
 
@@ -63,7 +79,7 @@ box-shadow: 1px 1px 10px 1px #e6e6e6;
 function Header() {
   return (
     <Wrapper>
-      <div style={{display:"flex"}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
       <Logo />
       <Name>Property Broker</Name>
       </div>
