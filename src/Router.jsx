@@ -4,7 +4,8 @@ import './App.css'
 import Homepage from './Component/Home'
 import Header from './Component/Header'
 import Footer from './Component/Footer'
-import Property from './Component/Home/property'
+import Product from './Component/Product'
+import Productdes from './Component/Productdes'
 
 
 function Router () {
@@ -14,7 +15,9 @@ function Router () {
       <Routes>
         <Route path='*' element={<h1>404 Not Found</h1>} />
         <Route path='/' element={<Homepage />} />
-        <Route path='/property' element={<Property />} />
+        <Route path='/product' element={<Product/>} />
+        <Route path='/product-description' element={<Productdes/>} />
+
       </Routes>
       <Footer/>
     </BrowserRouter>

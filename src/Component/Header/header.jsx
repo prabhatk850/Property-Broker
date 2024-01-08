@@ -28,12 +28,19 @@ const Login = styled(FaUserNinja)`
   height: 30px;
   color: red;
   margin-right: 30px;
+@media (max-width: 767px) {
+display: none;
+}
 `;
 const Menu = styled(TiThMenu)`
+  width: 25px;
+  height: 25px;
+  color: red;
+@media (min-width: 767px) {
   width: 30px;
   height: 30px;
-  color: red;
- 
+  display: none;
+} 
 `;
 
 const Name= styled.div`
@@ -74,6 +81,52 @@ box-shadow: 1px 1px 10px 1px #e6e6e6;
 }
 `;
 
+const User= styled.div`
+  display: none;
+  border-radius: 15px;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  color: black;
+  right: 30px;
+  padding: 20px;
+  margin-top:10px ;
+  box-shadow: 1px 1px 10px 1px #e6e6e6;
+`;
+
+const Heading= styled.div`
+font-size: 25px;
+font-weight: bold;
+color: red;
+padding-bottom: 10px;
+&:hover{
+  cursor: pointer;
+  color: #ff9999;
+}
+`;
+
+const SubHeading= styled.div`
+font-size: 18px;
+padding-top: 10px;
+color: gray;
+&:hover{
+  cursor: pointer;
+  color: black;
+}
+`;
+
+const Div= styled.div`
+padding:10px 0;
+&:hover{
+  cursor: pointer;
+  ${User}{
+    display: block;
+    opacity: 1;
+  }
+}
+`;
+
+
 
 
 function Header() {
@@ -87,7 +140,18 @@ function Header() {
         <Owner>
           Post Property
         </Owner>
+        <Div>
         <Login/>
+        <User>
+          <Heading>Login / Register</Heading>
+          <SubHeading>Modify Profile</SubHeading>
+          <SubHeading>Shortlisted</SubHeading>
+          <SubHeading>Wishlist</SubHeading>
+          <SubHeading>My Enquiries</SubHeading>
+          <SubHeading>Logout</SubHeading>
+        </User>
+        </Div>
+
         <Menu/>
       </div>
     </Wrapper>

@@ -4,7 +4,8 @@ import { FaFacebookSquare,FaInstagram,FaTwitter,FaYoutube,FaLinkedin } from "rea
 
 const Wrapper = styled.div`
 width: 100%;
-margin-bottom: 30px;
+padding-bottom: 30px;
+background-color: #F5F5F5;
 `;
 
 const Flex = styled.div`
@@ -30,7 +31,7 @@ const Div = styled.div`
 }
 `;
 const Div1 = styled.div`
-  margin: 20px 2%;
+  margin:0 2% 20px 2%;
   font-size: 30px;
   color: black;
 `;
@@ -54,8 +55,6 @@ function Footer() {
       <Div>About Us</Div>
       <Div>Terms and Conditions</Div>
       <Div>Privacy Policy</Div>
-      <Div>Help</Div>
-      <Div>Testimonnial</Div>
       <Div>FAQs</Div>
       </Flex>
       <Flex1>

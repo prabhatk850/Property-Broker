@@ -3,6 +3,7 @@ import Slider from "@mui/material/Slider";
 import styled from 'styled-components'
 import { Container } from '@mui/material';
 import Property from './property';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -189,6 +190,8 @@ grid-template-columns: repeat(2, 1fr);
 
  
 function Homepage(props) {
+
+  const navigate = useNavigate();
   
   const [purpose,setPurpose]=useState('Buy');
   const handdleClick=(display)=>{
@@ -265,7 +268,7 @@ function Homepage(props) {
             <Choice>Ready to move</Choice>
             <Choice>Under Construction</Choice>
           </Select1>
-        </div>:<div>
+        </div>:<div >
         <Text>Furnishing</Text>
          <Select2>
             <Choice disabled selected hidden>Furnishing</Choice>
@@ -296,7 +299,7 @@ function Homepage(props) {
           </div>
          </Div2>
          <Div2 style={{margin:"25px 0 25px 0"}}>
-         <Search>Search</Search>
+         <Search onClick={()=>{navigate("/product")}}>Search</Search>
          </Div2>
         </Main>
         
@@ -379,7 +382,7 @@ function Homepage(props) {
             </div>
             </div>  
          <Div2 style={{margin:"50px 0 30px 0"}}>
-         <Search>Search</Search>
+         <Search onClick={()=>{navigate("/product")}}>Search</Search>
          </Div2>
         </Main>
         <div style={{margin:"30px 0 0 0"}}>

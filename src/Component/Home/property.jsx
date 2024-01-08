@@ -59,7 +59,7 @@ function Property(props) {
     return (
       <div style={{display:"flex",margin:"20px 0",overflowX:"scroll"}}>
       { properties.map((e,key) => (
-        <Main key={key} onClick={() => { navigate("/product") }}>
+        <Main key={key} onClick={() => { navigate("/product-description") }}>
         <div style={{display:"flex"}}>
         <Image src={e.img}></Image>
         <Star/>
