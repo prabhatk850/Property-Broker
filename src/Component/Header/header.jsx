@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaHouseChimney, FaUserNinja } from "react-icons/fa6";
 import { TiThMenu } from "react-icons/ti";
+import { useNavigate } from 'react-router-dom'
+
 
 
 
@@ -27,7 +29,6 @@ const Login = styled(FaUserNinja)`
   width: 30px;
   height: 30px;
   color: red;
-  margin-right: 30px;
 @media (max-width: 767px) {
 display: none;
 }
@@ -37,8 +38,6 @@ const Menu = styled(TiThMenu)`
   height: 25px;
   color: red;
 @media (min-width: 767px) {
-  width: 30px;
-  height: 30px;
   display: none;
 } 
 `;
@@ -117,6 +116,7 @@ color: gray;
 
 const Div= styled.div`
 padding:10px 0;
+margin-right: 50px; 
 &:hover{
   cursor: pointer;
   ${User}{
@@ -124,31 +124,37 @@ padding:10px 0;
     opacity: 1;
   }
 }
+@media (max-width: 767px) {
+  display: none;
+}
 `;
 
 
 
 
 function Header() {
+
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+      <div onClick={()=>{navigate("/")}} style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
       <Logo />
       <Name>Property Broker</Name>
       </div>
       <div style={{display:"flex",alignItems:"center"}}>
-        <Owner>
+        <Owner onClick={()=>{navigate("/addproperty")}}>
           Post Property
         </Owner>
         <Div>
         <Login/>
         <User>
-          <Heading>Login / Register</Heading>
-          <SubHeading>Modify Profile</SubHeading>
-          <SubHeading>Shortlisted</SubHeading>
-          <SubHeading>Wishlist</SubHeading>
-          <SubHeading>My Enquiries</SubHeading>
-          <SubHeading>Logout</SubHeading>
+          <Heading onClick={()=>{navigate("/Auth")}}>Login / Register</Heading>
+          <SubHeading onClick={()=>{navigate("/profile")}} >Modify Profile</SubHeading>
+          <SubHeading onClick={()=>{navigate("/shortlist")}}>Shortlisted</SubHeading>
+          <SubHeading onClick={()=>{navigate('/wishlist')}}>Wishlist</SubHeading>
+          <SubHeading onClick={()=>{navigate("/enquiry")}}>My Enquiries</SubHeading>
+          <SubHeading onClick={()=>{navigate("/")}}>Logout</SubHeading>
         </User>
         </Div>
 
