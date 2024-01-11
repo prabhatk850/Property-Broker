@@ -7,18 +7,27 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 const Wrapper = styled.div`
 margin: 50px 10% 120px;
 display: flex;
+
+@media (max-width: 768px) {
+    margin: 50px 0 50px;    
+    height: 600px;
+}
 `;
 
 const Content = styled.div`
 width: 100%;
 box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
-margin-left: 15px;
+margin-left: 10px;
+margin-right: 10px;
 border-radius: 10px;
 padding: 0 50px 0 50px;
+@media (max-width: 768px) {
+  margin:0 5%;
+}
 `;
 
 const Back = styled.span`
-width: 70px;
+width: 80px;
 font-size: 20px;
 font-weight: 200;
 color: gray;
@@ -38,6 +47,9 @@ font-size: 30px;
 font-weight: 200;
 color: red;
 margin-bottom: 30px;
+@media(max-width: 768px) {
+    font-size: 20px;
+}
 `;
 
 const SubHeading = styled.div`
@@ -45,9 +57,14 @@ font-size: 18px;
 font-weight: 200;
 color: gray;
 padding-bottom: 5px;
+@media(max-width: 768px) {
+    font-size: 17px;
+}
 `;
 
-const Div = styled.div``;
+const Div = styled.div`
+
+`;
 
 const Button = styled.span`
 font-size: 25px;
@@ -57,6 +74,9 @@ margin-top: 70px;
 background-color: red;
 padding: 10px 20px;
 border-radius: 30px;
+@media(max-width: 768px) {
+    font-size: 20px;
+}
 `;
 
 const Input = styled.input`
@@ -67,8 +87,18 @@ font-weight: 200;
 margin-bottom: 20px;
 border: 1px solid #d9d9d9;
 padding: 0 10px;
-
+@media (max-width: 768px) {
+    width: 80%;
+}
 `;
+
+const Div2 = styled.div`
+@media (max-width: 768px) {
+    display: none;
+}
+`;
+
+
 
 
 
@@ -83,9 +113,11 @@ function Propertylocation() {
 
     
     <Wrapper>
+        <Div2>
         <Sidebar/>
+        </Div2>
         <Content>
-        <Back onClick={()=>{navigate("/addproperty")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
+        <Back onClick={()=>{navigate("/addproperty")}}><FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
         <Heading>Where is your property located?</Heading>
           <Div>
           <SubHeading>Enter Location</SubHeading>

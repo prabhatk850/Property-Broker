@@ -5,3 +5,98 @@
 .red{
     background-color: red;
 }
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.button{
+font-size: 25px;
+font-weight: 500;
+color: white;
+margin-top: 50px;
+background-color: red;
+padding: 10px 20px;
+border-radius: 30px;
+@media(max-width: 768px) {
+    font-size: 20px;
+}
+}
+
+.sbutton{
+font-size: 18px;
+font-weight: 300;
+display: flex;
+width: 140px;
+color: white;
+margin: 5px;
+padding: 8px 10px;
+background-color: red;
+
+
+border-radius: 20px;
+@media(max-width: 768px) {
+    font-size: 18px;
+}
+}
+
+.heading{
+    font-size: 30px;
+font-weight: 200;
+color: red;
+margin-bottom: 30px;
+@media(max-width: 768px) {
+    font-size: 20px;
+}
+}
+
+.back{
+    width: 80px;
+font-size: 20px;
+font-weight: 200;
+color: gray;
+margin-top: 20px;
+padding-bottom: 10px;
+margin-bottom: 30px;
+display: flex;
+align-items: center;
+&:hover{
+  cursor: pointer;
+  color: black;
+}
+}
+
+.subheading{
+font-size: 20px;
+font-weight: 200;
+color: gray;
+padding-bottom: 10px;
+margin-top: 40px;
+@media(max-width: 768px) {
+    font-size: 17px;
+    margin-top: 20px;
+}
+}
+
+.input{
+width: 40%;
+height: 35px;
+font-size: 20px;
+font-weight: 200;
+margin-bottom: 20px;
+border: 1px solid #d9d9d9;
+padding: 0 10px;
+@media (max-width: 768px) {
+    width: 80%;
+}
+}
+
+.none{
+    display: none;
+}
+
+.block{
+    display: block;
+    margin-bottom: 10px;
+}

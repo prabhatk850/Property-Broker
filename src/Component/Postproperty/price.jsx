@@ -32,12 +32,20 @@ align-items: center;
 }
 `;
 
+const Div2 = styled.div`
+@media (max-width: 768px) {
+    display: none;
+}
+`;
+
 function Price() {
 
   const navigate = useNavigate();
   return (
     <Wrapper>
+        <Div2>
         <Sidebar/>
+        </Div2>
         <Content>
         <Back onClick={()=>{navigate("/photos")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
         </Content>

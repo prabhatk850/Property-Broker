@@ -1,6 +1,9 @@
 import React from 'react'
 import Postproduct from './postproduct'
 
+
+
+
 function Index() {
   return (
     <div>

@@ -1,46 +1,597 @@
-import React from 'react'
+
 import styled from 'styled-components'
 import Sidebar from './sidebar'
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useState } from 'react';
+
+
 
 
 const Wrapper = styled.div`
 margin: 50px 10% 120px;
 display: flex;
+padding-bottom: 40px;
+
+@media (max-width: 768px) {
+    margin: 50px 0 50px;    
+}
 `;
 
 const Content = styled.div`
 width: 100%;
 box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
-margin-left: 15px;
 border-radius: 10px;
+margin-left: 10px;
+margin-right: 10px;
 padding: 0 50px 0 50px;
+@media (max-width: 768px) {
+  margin:0 5%;
+}
 `;
 
-const Back = styled.span`
-width: 70px;
-font-size: 20px;
-font-weight: 200;
-color: gray;
-margin-top: 20px;
-padding-bottom: 10px;
+const Div1 = styled.span`
+margin-right: 10px;
 display: flex;
 align-items: center;
+justify-content: center;
+padding: 8px 14px;
+border: 1px solid #d9d9d9;
+border-radius: 20px;
+margin-bottom: 10px;
+`;
+
+const Div2 = styled.span`
+margin-right: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 5px 11px;
+border: 1px solid #d9d9d9;
+border-radius: 20px;
+
+`;
+
+
+const Supersub = styled.div`
+font-size: 15px;
+font-weight: 200;
+color:black;
+padding-bottom: 10px;
+margin-top: 15px;
+@media (max-width: 768px) {
+   
+  
+}
+
+`;
+
+
+const Div3 = styled.div`
+@media (max-width: 768px) {
+    display: none;
+}
+`;
+
+const Select=styled.select`
+height:35px;
+font-size:20px;
+padding: 0 10px;
+color: gray;
+border: 1px solid #d9d9d9;
+border-bottom:none;
+border-top: none;
+border-right: none;
+outline: none;
+`;
+
+const Choice=styled.option`
+color: gray;
+`;
+
+const Div=styled.div`
+display: flex;
+height: 35px;
+justify-content: space-between;
+width: 50%;
+margin-bottom: 10px;
+border: 1px solid #d9d9d9;
+@media (max-width: 768px) {
+    width: 100%;
+
+}
+`;
+
+const BB=styled.div`
+color: red;
+font-size: 15px;
+font-weight: 200;
+`;
+
+
+const Input=styled.input`
+width: 40%;
+height: 35px;
+font-size: 20px;
+font-weight: 200;
+margin-bottom: 20px;
+border: 1px solid #d9d9d9;
+padding: 0 10px;
+border: none;
+outline: none;
+@media (max-width: 768px) {
+    width: 80%;
+}
+`;
+const Input1=styled.input`
+width: 40%;
+height: 35px;
+font-size: 20px;
+font-weight: 200;
+margin-bottom: 20px;
+border: 1px solid #d9d9d9;
+padding: 0 10px;
+margin-right: 20px;
+
+@media (max-width: 768px) {
+    width: 80%;
+}
+`;
+
+const Flex = styled.div`
+display: flex;
+align-items: center;
+
+@media (max-width: 768px) {
+    display: block;
+}
+`;
+
+const Button = styled.span`
+font-size: 25px;
+font-weight: 500;
+color: white;
+
+background-color: red;
+padding: 10px 20px;
+border-radius: 30px;
 &:hover{
-  cursor: pointer;
-  color: black;
+    cursor: pointer;
+    background-color:#fa5050 ;
+    }
+@media(max-width: 768px) {
+    font-size: 20px;
+}
+
+`;
+
+const Sbutton = styled.div`
+font-size: 18px;
+font-weight: 300;
+display: flex;
+width: 140px;
+color: white;
+margin: 5px;
+padding: 8px 10px;
+background-color: red;
+
+
+border-radius: 20px;
+@media(max-width: 768px) {
+    font-size: 18px;
 }
 `;
 
 function Propertyprofile() {
+ 
+
+const [type,setType]=useState("red");
+const [type1,setType1]=useState("gray");
+const [type2,setType2]=useState("gray");
+const [type3,setType3]=useState("gray");
+const [type4,setType4]=useState("gray");
+
+const [pype,setPype]=useState("red");
+const [pype1,setPype1]=useState("gray");
+const [pype2,setPype2]=useState("gray");
+const [pype3,setPype3]=useState("gray");
+const [pype4,setPype4]=useState("gray");
+
+const [hype,setHype]=useState("red");
+const [hype1,setHype1]=useState("gray");
+const [hype2,setHype2]=useState("gray");
+const [hype3,setHype3]=useState("gray");
+
+const [style,setStyle]=useState("none");
+const [style1,setStyle1]=useState("none");
+const [style2,setStyle2]=useState("block");
+const [style3,setStyle3]=useState("block");
+
+const [checked,setChecked]=useState(false);
+const[checked1,setChecked1]=useState(false);
+const[checked2,setChecked2]=useState(false);
+const[checked3,setChecked3]=useState(false);
+
+const [color,setColor]=useState("gray");
+const [color1,setColor1]=useState("gray");
+const [color2,setColor2]=useState("gray");
+const [color3,setColor3]=useState("gray");
+
+
+const [furnish,setFurnish]=useState("red");
+const [semifurnish,setSemifurnish]=useState("gray");
+const [unfurnish,setUnfurnish]=useState("gray");
+
+const [value,setValue]=useState(0);
+const [value1,setValue1]=useState(0);
+
+const [ready,setReady]=useState("red");
+const [underconstruct,setUnderconstruct]=useState("gray");
+
+const handleavailability=()=>{
+  setReady("red");
+  setUnderconstruct("gray");
+}
+
+const handleavailability1=()=>{
+  setUnderconstruct("red");
+  setReady("gray");
+}
+
+
+const handleinc=()=>{
+  setValue(value+1);
+}
+
+const handleinc1=()=>{
+  setValue1(value1+1);
+}
+
+const handledec=()=>{
+  if(value>0){
+  setValue(value-1);
+}
+}
+
+const handledec1=()=>{
+  if(value1>0){
+  setValue1(value1-1);
+}
+}
+
+const handlefurnish=()=>{
+  setFurnish("red");
+  setSemifurnish("gray");
+  setUnfurnish("gray");
+}
+
+const handlesemifurnish=()=>{
+  setSemifurnish("red");
+  setFurnish("gray");
+  setUnfurnish("gray");
+}
+
+const handleunfurnish=()=>{
+  setUnfurnish("red");
+  setFurnish("gray");
+  setSemifurnish("gray");
+}
+
+const handleCheck=()=>{
+  setChecked(!checked);
+
+}
+
+const handleCheck1=()=>{
+  setChecked1(!checked1);
+
+}
+
+const handleCheck2=()=>{
+  setChecked2(!checked2);
+  
+}
+
+const handleCheck3=()=>{
+  setChecked3(!checked3);
+ 
+}
+
+const handlecolor=()=>{
+  if(color === "gray"){
+    setColor("red");
+  }
+}
+
+const handlecolor1=()=>{
+  if(color1 === "gray"){
+    setColor1("red");
+  }
+}
+
+const handlecolor2=()=>{
+  if(color2 === "gray"){
+    setColor2("red");
+  }
+}
+
+const handlecolor3=()=>{
+  if(color3 === "gray"){
+    setColor3("red");
+  }
+}
+
+
+const handlestyle=()=>{
+    if(style === "none"){ 
+      setStyle("block");
+      setStyle2("none");
+      }
+}
+const handlestyle1=()=>{
+    if(style1 === "none"){ 
+      setStyle1("block");
+      setStyle3("none");
+      }
+
+}
+
+
+const handleclick=()=>{
+     if(type === "gray"){ 
+      setType("red");
+      setType1("gray");
+      setType2("gray");
+      setType3("gray");
+      setType4("gray");
+      }
+ }
+    const handleclick1=()=>{
+        if(type1 === "gray"){ 
+        setType1("red");
+        setType("gray");
+        setType2("gray");
+        setType3("gray");
+        setType4("gray");
+        }
+    }
+    const handleclick2=()=>{
+        if(type2 === "gray"){ 
+        setType2("red");
+        setType1("gray");
+        setType("gray");
+        setType3("gray");
+        setType4("gray");
+        }
+    }
+    const handleclick3=()=>{
+        if(type3 === "gray"){ 
+        setType3("red");
+        setType1("gray");
+        setType2("gray");
+        setType("gray");
+        setType4("gray");
+        }
+    }
+    const handleclick4=()=>{
+        if(type4 === "gray"){ 
+        setType4("red");
+        setType1("gray");
+        setType2("gray");
+        setType3("gray");
+        setType("gray");
+        }
+    }
+
+    const handlebath=()=>{
+      if(pype === "gray"){ 
+       setPype("red");
+       setPype1("gray");
+       setPype2("gray");
+       setPype3("gray");
+       setPype4("gray");
+       }
+  }
+     const handlebath1=()=>{
+         if(pype1 === "gray"){ 
+         setPype1("red");
+         setPype("gray");
+         setPype2("gray");
+         setPype3("gray");
+         setPype4("gray");
+         }
+     }
+     const handlebath2=()=>{
+         if(pype2 === "gray"){ 
+         setPype2("red");
+         setPype1("gray");
+         setPype("gray");
+         setPype3("gray");
+         setPype4("gray");
+         }
+     }
+     const handlebath3=()=>{
+         if(pype3 === "gray"){ 
+         setPype3("red");
+         setPype1("gray");
+         setPype2("gray");
+         setPype("gray");
+         setPype4("gray");
+         }
+     }
+     const handlebath4=()=>{
+         if(pype4 === "gray"){ 
+         setPype4("red");
+         setPype1("gray"); 
+         setPype2("gray");
+         setPype3("gray");
+         setPype("gray");
+         }
+     }
+
+     const handlebalcony=()=>{
+      if(hype === "gray"){ 
+       setHype("red");
+       setHype1("gray");
+       setHype2("gray");
+       setHype3("gray");
+       }
+  }
+     const handlebalcony1=()=>{
+         if(hype1 === "gray"){ 
+         setHype1("red");
+         setHype("gray");
+         setHype2("gray");
+         setHype3("gray");
+         }
+     }
+     const handlebalcony2=()=>{
+         if(hype2 === "gray"){ 
+         setHype2("red");
+         setHype1("gray");
+         setHype("gray");
+         setHype3("gray");
+         }
+     }
+     const handlebalcony3=()=>{
+         if(hype3 === "gray"){ 
+         setHype3("red");
+         setHype1("gray");
+         setHype2("gray");
+         setHype("gray");
+         }
+     }
+     
+  
 
   const navigate = useNavigate();
   return (
     <Wrapper>
+       <Div3>
         <Sidebar/>
+        </Div3>
         <Content>
-        <Back onClick={()=>{navigate("/location")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
+        <div className='back' onClick={()=>{navigate("/location")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</div>
+        <div style={{marginBottom:"20px"}} className='heading'>Tell us about your peoperty</div>
+        <div className='subheading'>Add Room Details</div>
+        <Supersub>No. of bedroom</Supersub>
+        <div className='flex'>
+            <Div1 className={type} onClick={handleclick}>1</Div1>
+            <Div1 className={type1} onClick={handleclick1}>2</Div1>
+            <Div1 className={type2} onClick={handleclick2}>3</Div1>
+            <Div1 className={type3} onClick={handleclick3}>4</Div1>
+            <Div1 className={type4} onClick={handleclick4}>4+</Div1>        
+        </div>
+        <Supersub>No. of bathroom</Supersub>
+        <div className='flex'>
+            <Div1 className={pype} onClick={handlebath}>1</Div1>
+            <Div1 className={pype1} onClick={handlebath1}>2</Div1>
+            <Div1 className={pype2} onClick={handlebath2}>3</Div1>
+            <Div1 className={pype3} onClick={handlebath3}>4</Div1>
+            <Div1 className={pype4} onClick={handlebath4}>4+</Div1>
+        </div>
+        <Supersub>No. of balconies</Supersub>
+        <div className='flex'>
+            <Div1 className={hype} onClick={handlebalcony}>1</Div1>
+            <Div1 className={hype1} onClick={handlebalcony1}>2</Div1>
+            <Div1 className={hype2} onClick={handlebalcony2}>3</Div1>
+            <Div1 className={hype3} onClick={handlebalcony3}>4</Div1>
+        </div>
+
+        <div className='subheading'>Add Area Details</div>
+       
+        <Div>
+        <Input placeholder='Carpet Area'></Input>
+        <Select>
+            <Choice selected>Sq.ft</Choice>
+            <Choice>Sq.yard</Choice>
+            <Choice>Sq.m</Choice>
+            <Choice>Acres</Choice>
+            <Choice>Bigha</Choice>
+        </Select>
+        </Div>
+
+        <div className='flex'>
+        <BB className={style2} style={{marginRight:"20px"}} onClick={handlestyle}>+ Add Built-up Area</BB>
+        <BB className={style3} onClick={handlestyle1}>+ Add Super Built-up Area</BB>
+        </div>
+
+        <div className={style}>
+        <Div>
+        <Input  placeholder='Built-up Area'></Input>
+        <Select>
+            <Choice selected>Sq.ft</Choice>
+            <Choice>Sq.yard</Choice>
+            <Choice>Sq.m</Choice>
+            <Choice>Acres</Choice>
+            <Choice>Bigha</Choice>
+        </Select>
+        </Div>
+        </div>
+        <div className={style1}>
+        <Div >
+        <Input  placeholder='Super Built-up Area'></Input>
+        <Select>
+            <Choice selected>Sq.ft</Choice>
+            <Choice>Sq.yard</Choice>
+            <Choice>Sq.m</Choice>
+            <Choice>Acres</Choice>
+            <Choice>Bigha</Choice>
+        </Select>
+        </Div>
+        </div>
+
+        <div className='subheading'>Other Rooms</div>
+        <Flex>
+          <div onClick={handlecolor}>
+        <Sbutton className={color}  onClick={handleCheck} >{checked?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Pooja Room</div></Sbutton>
+        </div>
+        <div onClick={handlecolor1}>
+        <Sbutton className={color1}  onClick={handleCheck1} >{checked1?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Study Room</div></Sbutton>
+        </div>
+        </Flex>   
+        <Flex>  
+        <div onClick={handlecolor2}>  
+        <Sbutton className={color2}  onClick={handleCheck2} >{checked2?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Store Room</div></Sbutton>
+        </div>
+        <div onClick={handlecolor3}>
+        <Sbutton className={color3}  onClick={handleCheck3} >{checked3?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Servent Room</div></Sbutton>
+        </div>
+        </Flex>
+       <div className='subheading'>Furnishing</div>
+       <Flex>
+            <Div1 style={{width:"130px"}} className={furnish} onClick={handlefurnish}>Full-Furnished</Div1>
+            <Div1 style={{width:"130px"}} className={semifurnish} onClick={handlesemifurnish}>Semi-Furnished</Div1>
+            <Div1 style={{width:"130px"}} className={unfurnish} onClick={handleunfurnish}>Un-Furnished</Div1>
+       </Flex>
+        <div className='subheading'>Parking</div>
+       <Flex>
+        <div style={{marginRight:"40px"}} className='flex'>
+        <Supersub style={{fontSize:"15px",marginRight:"20px"}}>Close Parking</Supersub>
+        <Div2 onClick={handledec}>-</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{value}</BB>
+        <Div2 onClick={handleinc}>+</Div2>
+        </div>
+        <div className='flex'>
+        <Supersub style={{fontSize:"15px",marginRight:"20px"}}>Open Parking</Supersub>
+        <Div2 onClick={handledec1}>-</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{value1}</BB>
+        <Div2 onClick={handleinc1}>+</Div2>
+        </div>
+       </Flex>
+       
+        <div className='subheading'>Floor Details</div>
+        <Input1 type='text' placeholder='Total Floors'></Input1>
+        <Input1 type='text' placeholder='Property Floor'></Input1>
+
+        <div className='subheading'>Availability status</div>
+        <Flex>
+            <Div1 style={{width:"150px"}} className={ready} onClick={handleavailability}>Ready to move</Div1>
+            <Div1 style={{width:"150px"}} className={underconstruct} onClick={handleavailability1}>Under Construction</Div1>
+        </Flex>
+        <div style={{margin:"70px 0 40px"}}>
+        <Button onClick={()=>{navigate("/photos")}}>Continue</Button>
+        </div>
         </Content>
     </Wrapper>
   )
