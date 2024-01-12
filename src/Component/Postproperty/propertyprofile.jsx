@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 
 
+
 const Wrapper = styled.div`
 margin: 50px 10% 120px;
 display: flex;
@@ -24,7 +25,7 @@ box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
 border-radius: 10px;
 margin-left: 10px;
 margin-right: 10px;
-padding: 0 50px 0 50px;
+padding: 0 0px 0 50px;
 @media (max-width: 768px) {
   margin:0 5%;
 }
@@ -52,10 +53,25 @@ border-radius: 20px;
 
 `;
 
+const Div5 = styled.span`
+margin-right: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 8px 14px;
+border: 1px solid #d9d9d9;
+border-radius: 20px;
+margin-bottom: 10px;
+@media (max-width:768px){
+  width: 130px;
+}
+`;
+
 
 const Supersub = styled.div`
 font-size: 15px;
 font-weight: 200;
+min-width: 50px;
 color:black;
 padding-bottom: 10px;
 margin-top: 15px;
@@ -97,13 +113,28 @@ width: 50%;
 margin-bottom: 10px;
 border: 1px solid #d9d9d9;
 @media (max-width: 768px) {
-    width: 100%;
+    width: 60%;
+}
+@media (max-width: 500px) {
+  width: 95%;
 
 }
+
 `;
 
 const BB=styled.div`
 color: red;
+width: 15px;
+display: flex;
+justify-content: center;
+font-size: 15px;
+font-weight: 200;
+`;
+
+const BB1=styled.div`
+color: red;
+display: flex;
+justify-content: center;
 font-size: 15px;
 font-weight: 200;
 `;
@@ -141,7 +172,6 @@ margin-right: 20px;
 const Flex = styled.div`
 display: flex;
 align-items: center;
-
 @media (max-width: 768px) {
     display: block;
 }
@@ -165,39 +195,85 @@ border-radius: 30px;
 
 `;
 
-const Sbutton = styled.div`
+const SButton1 = styled.div`
 font-size: 18px;
 font-weight: 300;
 display: flex;
 width: 140px;
-color: white;
 margin: 5px;
 padding: 8px 10px;
-background-color: red;
-
-
 border-radius: 20px;
 @media(max-width: 768px) {
     font-size: 18px;
 }
 `;
 
+const Select1=styled.select`
+height:40px;
+font-size:18px;
+padding: 0 30px 0 10px;
+color: gray;
+outline: none;
+`;
+
+const Furnish=styled.div`
+box-shadow: 0 0 10px 0 rgba(185, 10, 10, 0.1);
+border-radius: 10px;
+margin: 10px 50px 20px 0;
+padding: 10px 10px 10px 10px;
+
+@media (max-width: 920px) {
+    margin: 10px 5px 20px 0;
+    padding: 20px 10px 20px 10px;
+}
+@media (max-width: 500px) {
+  margin: 10px 5% 20px 5%;
+}
+
+`;
+
+const Flex1=styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  @media (max-width: 768px) {
+    display: block;
+  }
+  // Add any other CSS properties here to achieve the desired symmetrical look
+`;
+
+const Button1=styled.input`
+ height: 20px;
+width: 20px;
+  border-color: gray;
+  border-radius: 4px;
+  font-size: 17px;
+  padding: 0 2px 4px 2px;
+  margin-right: 8px;
+  &:hover{cursor: pointer;
+  }
+`;
+
+const Div4=styled.div``;
+
+
 function Propertyprofile() {
  
 
-const [type,setType]=useState("red");
+const [type,setType]=useState("gray");
 const [type1,setType1]=useState("gray");
 const [type2,setType2]=useState("gray");
 const [type3,setType3]=useState("gray");
 const [type4,setType4]=useState("gray");
 
-const [pype,setPype]=useState("red");
+const [pype,setPype]=useState("gray");
 const [pype1,setPype1]=useState("gray");
 const [pype2,setPype2]=useState("gray");
 const [pype3,setPype3]=useState("gray");
 const [pype4,setPype4]=useState("gray");
 
-const [hype,setHype]=useState("red");
+const [hype,setHype]=useState("gray");
 const [hype1,setHype1]=useState("gray");
 const [hype2,setHype2]=useState("gray");
 const [hype3,setHype3]=useState("gray");
@@ -218,15 +294,83 @@ const [color2,setColor2]=useState("gray");
 const [color3,setColor3]=useState("gray");
 
 
-const [furnish,setFurnish]=useState("red");
+const [furnish,setFurnish]=useState("gray");
 const [semifurnish,setSemifurnish]=useState("gray");
 const [unfurnish,setUnfurnish]=useState("gray");
 
 const [value,setValue]=useState(0);
 const [value1,setValue1]=useState(0);
+const [value2,SetValue2]=useState(0);
+const [value3,SetValue3]=useState(0);
+const [value4,SetValue4]=useState(0);
+const [value5,SetValue5]=useState(0);
+const [value6,SetValue6]=useState(0);
 
-const [ready,setReady]=useState("red");
+
+const [ready,setReady]=useState("gray");
 const [underconstruct,setUnderconstruct]=useState("gray");
+
+const [age,setAge]=useState("gray");
+const [age1,setAge1]=useState("gray");
+const [age2,setAge2]=useState("gray");
+const [age3,setAge3]=useState("gray");
+
+const [propertyage,setPropertyage]=useState("none");
+const [propertyage1,setPropertyage1]=useState("none");
+
+const [display,setDisplay]=useState("none");
+
+const handledisplay=()=>{
+  if(display==="none"){
+    setDisplay("block");
+  }
+}
+const handledisplayn=()=>{
+  setDisplay("none");
+}
+
+
+const handlespropertyage=()=>{
+  if(propertyage === "none"){
+    setPropertyage("block");
+    setPropertyage1("none");
+  }
+}
+
+const handlepropertyage1=()=>{
+  if(propertyage1 === "none"){
+    setPropertyage1("block");
+    setPropertyage("none");
+  }
+}
+
+const handleage=()=>{
+  setAge("red");
+  setAge1("gray");
+  setAge2("gray");
+  setAge3("gray");
+}
+
+const handleage1=()=>{
+  setAge1("red");
+  setAge("gray");
+  setAge2("gray");
+  setAge3("gray");
+}
+
+const handleage2=()=>{
+  setAge2("red");
+  setAge1("gray");
+  setAge("gray");
+  setAge3("gray");
+}
+
+const handleage3=()=>{
+  setAge3("red");
+  setAge1("gray");
+  setAge2("gray");
+  setAge("gray");
+}
 
 const handleavailability=()=>{
   setReady("red");
@@ -246,6 +390,24 @@ const handleinc=()=>{
 const handleinc1=()=>{
   setValue1(value1+1);
 }
+const handleinc2=()=>{
+  SetValue2(value2+1);
+}
+const handleinc3=()=>{
+  SetValue3(value3+1);
+}
+const handleinc4=()=>{
+  SetValue4(value4+1);
+}
+const handleinc5=()=>{
+  SetValue5(value5+1);
+}
+const handleinc6=()=>{
+  SetValue6(value6+1);
+}
+
+
+
 
 const handledec=()=>{
   if(value>0){
@@ -256,6 +418,31 @@ const handledec=()=>{
 const handledec1=()=>{
   if(value1>0){
   setValue1(value1-1);
+}
+}
+const handledec2=()=>{
+  if(value2>0){
+  SetValue2(value2-1);
+}
+}
+const handledec3=()=>{
+  if(value3>0){
+  SetValue3(value3-1);
+}
+}
+const handledec4=()=>{
+  if(value4>0){
+  SetValue4(value4-1);
+}
+}
+const handledec5=()=>{
+  if(value5>0){
+  SetValue5(value5-1);
+}
+}
+const handledec6=()=>{
+  if(value6>0){
+  SetValue6(value6-1);
 }
 }
 
@@ -300,24 +487,32 @@ const handleCheck3=()=>{
 const handlecolor=()=>{
   if(color === "gray"){
     setColor("red");
+  }else{
+    setColor("gray")
   }
 }
 
 const handlecolor1=()=>{
   if(color1 === "gray"){
     setColor1("red");
+  }else{
+    setColor1("gray")
   }
 }
 
 const handlecolor2=()=>{
   if(color2 === "gray"){
     setColor2("red");
+  }else{
+    setColor2("gray")
   }
 }
 
 const handlecolor3=()=>{
   if(color3 === "gray"){
     setColor3("red");
+  }else{
+    setColor3("gray")
   }
 }
 
@@ -512,8 +707,8 @@ const handleclick=()=>{
         </Div>
 
         <div className='flex'>
-        <BB className={style2} style={{marginRight:"20px"}} onClick={handlestyle}>+ Add Built-up Area</BB>
-        <BB className={style3} onClick={handlestyle1}>+ Add Super Built-up Area</BB>
+        <BB1 className={style2} style={{marginRight:"20px"}} onClick={handlestyle}>+ Add Built-up Area</BB1>
+        <BB1 className={style3} onClick={handlestyle1}>+ Add Super Built-up Area</BB1>
         </div>
 
         <div className={style}>
@@ -529,7 +724,7 @@ const handleclick=()=>{
         </Div>
         </div>
         <div className={style1}>
-        <Div >
+        <Div>
         <Input  placeholder='Super Built-up Area'></Input>
         <Select>
             <Choice selected>Sq.ft</Choice>
@@ -544,26 +739,118 @@ const handleclick=()=>{
         <div className='subheading'>Other Rooms</div>
         <Flex>
           <div onClick={handlecolor}>
-        <Sbutton className={color}  onClick={handleCheck} >{checked?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Pooja Room</div></Sbutton>
+        <SButton1 className={color}  onClick={handleCheck} >{checked?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Pooja Room</div></SButton1>
         </div>
         <div onClick={handlecolor1}>
-        <Sbutton className={color1}  onClick={handleCheck1} >{checked1?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Study Room</div></Sbutton>
+        <SButton1 className={color1}  onClick={handleCheck1} >{checked1?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Study Room</div></SButton1>
         </div>
         </Flex>   
         <Flex>  
         <div onClick={handlecolor2}>  
-        <Sbutton className={color2}  onClick={handleCheck2} >{checked2?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Store Room</div></Sbutton>
+        <SButton1 className={color2}  onClick={handleCheck2} >{checked2?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Store Room</div></SButton1>
         </div>
         <div onClick={handlecolor3}>
-        <Sbutton className={color3}  onClick={handleCheck3} >{checked3?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Servent Room</div></Sbutton>
+        <SButton1 className={color3}  onClick={handleCheck3} >{checked3?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Servent Room</div></SButton1>
         </div>
         </Flex>
        <div className='subheading'>Furnishing</div>
        <Flex>
-            <Div1 style={{width:"130px"}} className={furnish} onClick={handlefurnish}>Full-Furnished</Div1>
-            <Div1 style={{width:"130px"}} className={semifurnish} onClick={handlesemifurnish}>Semi-Furnished</Div1>
-            <Div1 style={{width:"130px"}} className={unfurnish} onClick={handleunfurnish}>Un-Furnished</Div1>
+           <div onClick={handledisplay}><Div5 className={furnish} onClick={handlefurnish}>Full-Furnished</Div5></div>
+           <div onClick={handledisplay}><Div5 className={semifurnish} onClick={handlesemifurnish}>Semi-Furnished</Div5></div>
+           <div onClick={handledisplayn}> <Div5 className={unfurnish} onClick={handleunfurnish}>Un-Furnished</Div5></div>
        </Flex>
+       
+        <Furnish style={{display}}>
+          <Flex>
+        <div className='flex' >
+        <Supersub style={{fontSize:"18px",marginRight:"20px"}}>Light </Supersub>
+        <div className='flex'>
+        <Div2 onClick={handledec2}>-</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{value2}</BB>
+        <Div2 onClick={handleinc2}>+</Div2>
+        </div></div>
+
+        <div className='flex'>
+        <Supersub style={{fontSize:"18px",marginRight:"20px"}}>Fan</Supersub>
+        <div className='flex'>
+        <Div2 onClick={handledec3}>-</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{value3}</BB>
+        <Div2 onClick={handleinc3}>+</Div2>
+        </div></div>
+        </Flex>
+        <Flex>
+        <div className='flex '>
+        <Supersub style={{fontSize:"18px",marginRight:"20px"}}>TV</Supersub>
+        <div className='flex'>
+        <Div2 onClick={handledec4}>-</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{value4}</BB>
+        <Div2 onClick={handleinc4}>+</Div2>
+        </div></div>
+        <div className='flex'>
+        <Supersub style={{fontSize:"18px",marginRight:"20px"}}>AC</Supersub>
+        <div className='flex'>
+        <Div2 onClick={handledec5}>-</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{value5}</BB>
+        <Div2 onClick={handleinc5}>+</Div2>
+        </div></div>
+        </Flex>
+        <Flex>
+        <div className='flex'>
+        <Supersub style={{fontSize:"18px",marginRight:"20px"}}>Geyser</Supersub>
+        <div className='flex'>
+        <Div2 onClick={handledec6}>-</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{value6}</BB>
+        <Div2 onClick={handleinc6}>+</Div2>
+        </div></div>
+        <div style={{display:"Flex"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Sofa</Supersub>
+        </div>
+        </Flex>
+
+<Flex1>
+        <div style={{marginRight:"11%"}}>
+        <div style={{display:"Flex",margin:"15px 0 0 0"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",padding:"0 10px 0 0",margin:"0"}}>Washing machine</Supersub>
+        </div>
+        <div style={{display:"Flex",minWidth:"20%" ,marginTop:"15px"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Micro Wave</Supersub>
+        </div>
+        
+        <div style={{display:"Flex",minWidth:"23%" ,margin:"15px 0 0 0"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Fridge</Supersub>
+        </div>
+        <div style={{display:"Flex",minWidth:"23%" ,marginTop:"15px"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Stove</Supersub>
+        </div>
+        </div>
+
+        <div>
+        <div style={{display:"Flex",minWidth:"33%",margin:"15px 0 0 0"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Water Purifier</Supersub>
+        </div>
+        <div style={{display:"Flex",minWidth:"33%" ,marginTop:"15px"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Modular Kitchen</Supersub>
+        </div>
+        
+        <div style={{display:"Flex",minWidth:"33%",margin:"15px 0 0 0"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Chimney </Supersub>
+        </div>
+        <div style={{display:"Flex",minWidth:"33%" ,marginTop:"15px"}}>
+          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Exhaust Fan</Supersub>
+        </div>
+        </div>
+        </Flex1>   
+        </Furnish>
+       
         <div className='subheading'>Parking</div>
        <Flex>
         <div style={{marginRight:"40px"}} className='flex'>
@@ -586,9 +873,37 @@ const handleclick=()=>{
 
         <div className='subheading'>Availability status</div>
         <Flex>
-            <Div1 style={{width:"150px"}} className={ready} onClick={handleavailability}>Ready to move</Div1>
+            <div onClick={handlespropertyage}>
+              <Div1 style={{width:"150px"}} className={ready} onClick={handleavailability}>Ready to move</Div1>
+            </div>
+            <div onClick={handlepropertyage1}>
             <Div1 style={{width:"150px"}} className={underconstruct} onClick={handleavailability1}>Under Construction</Div1>
+            </div>
         </Flex>
+        <Div4 className={propertyage}>
+          <div className='subheading'>Age of property</div>
+          <Flex>
+            <Div1 className={age} onClick={handleage}>0-1 Years</Div1>
+            <Div1 className={age1} onClick={handleage1}>1-5 Years</Div1>
+            <Div1 className={age2} onClick={handleage2}>5-10 Years</Div1>
+            <Div1 className={age3} onClick={handleage3}>10+ Years</Div1>
+            </Flex>
+        </Div4>
+        <Div4 className={propertyage1}>
+          <div className='subheading'>Possesion By</div>
+          <Select1>
+            <Choice disabled selected hidden>Possesion By</Choice>
+            <Choice>Within 3 Months</Choice>
+            <Choice>Within 6 Months</Choice>
+            <Choice>By 2025</Choice>
+            <Choice>By 2026</Choice>
+            <Choice>By 2027</Choice>
+            <Choice>By 2028</Choice>
+            <Choice>By 2029</Choice>
+            <Choice>By 2030</Choice>
+          </Select1>
+        
+        </Div4>
         <div style={{margin:"70px 0 40px"}}>
         <Button onClick={()=>{navigate("/photos")}}>Continue</Button>
         </div>
