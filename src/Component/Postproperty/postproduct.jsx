@@ -102,7 +102,7 @@ display: flex;
 function Postproduct() {
 
     const navigate=useNavigate();
-    const [style,setStyle]=useState("red");
+    const [style,setStyle]=useState("gray");
     const [style1,setStyle1]=useState("gray");
     
     const handlechange=()=>{
@@ -118,7 +118,7 @@ function Postproduct() {
        } 
     }
 
-    const [type,setType]=useState("red");
+    const [type,setType]=useState("gray");
     const [type1,setType1]=useState("gray");
     const [type2,setType2]=useState("gray");
     const [type3,setType3]=useState("gray");
