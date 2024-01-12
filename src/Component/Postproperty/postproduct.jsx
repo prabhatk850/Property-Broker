@@ -208,7 +208,7 @@ function Postproduct() {
             </div>
            
             <div style={{margin:"50px 0 0 0"}}>
-            <Button onClick={()=>{navigate("/location")}}> Continue</Button>
+            <Button onClick={()=>{navigate("/addproperty/location")}}> Continue</Button>
             </div>
         </Content>
     </Wrapper>

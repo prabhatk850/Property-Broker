@@ -47,7 +47,7 @@ function Price() {
         <Sidebar/>
         </Div2>
         <Content>
-        <Back onClick={()=>{navigate("/photos")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
+        <Back onClick={()=>{navigate("/addproperty/photos")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
         </Content>
     </Wrapper>
   )

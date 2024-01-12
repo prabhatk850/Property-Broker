@@ -34,10 +34,10 @@ function Router () {
         <Route path='/shortlist' element={<Shortlist/>} />
         <Route path='/enquiry' element={<Enquiry/>} />
         <Route path='/addproperty' element={<Post/>} />
-        <Route path='/location' element={<Propertylocation/>} />
-        <Route path='/propertyprofile' element={<Propertyprofile/>} />
-        <Route path='/photos' element={<Photos/>} />
-        <Route path='/price' element={<Price/>} />
+        <Route path='/addproperty/location' element={<Propertylocation/>} />
+        <Route path='/addproperty/propertyprofile' element={<Propertyprofile/>} />
+        <Route path='/addproperty/photos' element={<Photos/>} />
+        <Route path='/addproperty/price' element={<Price/>} />
 
       </Routes>
       <Footer/>

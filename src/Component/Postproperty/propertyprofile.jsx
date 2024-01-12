@@ -666,7 +666,7 @@ const handleclick=()=>{
         <Sidebar/>
         </Div3>
         <Content>
-        <div className='back' onClick={()=>{navigate("/location")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</div>
+        <div className='back' onClick={()=>{navigate("/addproperty/location")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</div>
         <div style={{marginBottom:"20px"}} className='heading'>Tell us about your peoperty</div>
         <div className='subheading'>Add Room Details</div>
         <Supersub>No. of bedroom</Supersub>
@@ -905,7 +905,7 @@ const handleclick=()=>{
         
         </Div4>
         <div style={{margin:"70px 0 40px"}}>
-        <Button onClick={()=>{navigate("/photos")}}>Continue</Button>
+        <Button onClick={()=>{navigate("/addproperty/photos")}}>Continue</Button>
         </div>
         </Content>
     </Wrapper>

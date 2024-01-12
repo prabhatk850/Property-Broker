@@ -49,7 +49,7 @@ function Photos() {
         <Sidebar/>
         </Div2>
         <Content>
-        <Back onClick={()=>{navigate("/propertyprofile")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
+        <Back onClick={()=>{navigate("/addproperty/propertyprofile")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
         </Content>
     </Wrapper>
   )

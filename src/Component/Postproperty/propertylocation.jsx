@@ -146,7 +146,7 @@ function Propertylocation() {
           </Div>
 
           <div style={{margin:"30px 0 0 0"}}>
-            <Button onClick={()=>{navigate("/propertyprofile")}}> Continue</Button>
+            <Button onClick={()=>{navigate("/addproperty/propertyprofile")}}> Continue</Button>
             </div>
         </Content>
     </Wrapper>
