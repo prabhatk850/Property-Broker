@@ -246,6 +246,7 @@ const Flex1=styled.div`
 const Button1=styled.input`
  height: 20px;
 width: 20px;
+background: red;
   border-color: gray;
   border-radius: 4px;
   font-size: 17px;
@@ -738,26 +739,26 @@ const handleclick=()=>{
 
         <div className='subheading'>Other Rooms</div>
         <Flex>
-          <div onClick={handlecolor}>
+          <div className='od' onClick={handlecolor}>
         <SButton1 className={color}  onClick={handleCheck} >{checked?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Pooja Room</div></SButton1>
         </div>
-        <div onClick={handlecolor1}>
+        <div className='od' onClick={handlecolor1}>
         <SButton1 className={color1}  onClick={handleCheck1} >{checked1?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Study Room</div></SButton1>
         </div>
         </Flex>   
         <Flex>  
-        <div onClick={handlecolor2}>  
+        <div className='od' onClick={handlecolor2}>  
         <SButton1 className={color2}  onClick={handleCheck2} >{checked2?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Store Room</div></SButton1>
         </div>
-        <div onClick={handlecolor3}>
+        <div className='od' onClick={handlecolor3}>
         <SButton1 className={color3}  onClick={handleCheck3} >{checked3?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Servent Room</div></SButton1>
         </div>
         </Flex>
        <div className='subheading'>Furnishing</div>
        <Flex>
-           <div onClick={handledisplay}><Div5 className={furnish} onClick={handlefurnish}>Full-Furnished</Div5></div>
-           <div onClick={handledisplay}><Div5 className={semifurnish} onClick={handlesemifurnish}>Semi-Furnished</Div5></div>
-           <div onClick={handledisplayn}> <Div5 className={unfurnish} onClick={handleunfurnish}>Un-Furnished</Div5></div>
+           <div className='od' onClick={handledisplay}><Div5 className={furnish} onClick={handlefurnish}>Full-Furnished</Div5></div>
+           <div className='od' onClick={handledisplay}><Div5 className={semifurnish} onClick={handlesemifurnish}>Semi-Furnished</Div5></div>
+           <div className='od' onClick={handledisplayn}> <Div5 className={unfurnish} onClick={handleunfurnish}>Un-Furnished</Div5></div>
        </Flex>
        
         <Furnish style={{display}}>
@@ -873,10 +874,10 @@ const handleclick=()=>{
 
         <div className='subheading'>Availability status</div>
         <Flex>
-            <div onClick={handlespropertyage}>
+            <div className='od' onClick={handlespropertyage}>
               <Div1 style={{width:"150px"}} className={ready} onClick={handleavailability}>Ready to move</Div1>
             </div>
-            <div onClick={handlepropertyage1}>
+            <div className='od' onClick={handlepropertyage1}>
             <Div1 style={{width:"150px"}} className={underconstruct} onClick={handleavailability1}>Under Construction</Div1>
             </div>
         </Flex>

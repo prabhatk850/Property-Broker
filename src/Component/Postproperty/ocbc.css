@@ -25,7 +25,11 @@ width: 20px;
   &:hover{cursor: pointer;
   }
 }
-
+.od{
+    @media (max-width: 768px) {
+        width: fit-content;
+    }
+}
 .button{
 font-size: 25px;
 font-weight: 500;

@@ -16,6 +16,8 @@ import Propertylocation from './Component/Postproperty/propertylocation'
 import Propertyprofile from './Component/Postproperty/propertyprofile'
 import Photos from './Component/Postproperty/photos'
 import Price from './Component/Postproperty/price'
+import Thankyou from './Component/thankyou'
+import Amenities from './Component/Postproperty/amenities'
 
 
 
@@ -26,6 +28,7 @@ function Router () {
       <Routes>
         <Route path='*' element={<h1>404 Not Found</h1>} />
         <Route path='/' element={<Homepage />} />
+        <Route path='/thankyou' element={<Thankyou />} />
         <Route path='/product' element={<Product/>} />
         <Route path='/product-description' element={<Productdes/>} />
         <Route path='/Auth' element={<Auth/>} />
@@ -38,6 +41,7 @@ function Router () {
         <Route path='/addproperty/propertyprofile' element={<Propertyprofile/>} />
         <Route path='/addproperty/photos' element={<Photos/>} />
         <Route path='/addproperty/price' element={<Price/>} />
+        <Route path='/addproperty/amenities' element={<Amenities/>} />
 
       </Routes>
       <Footer/>
