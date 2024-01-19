@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Sidebar from './sidebar'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom';
@@ -753,6 +753,14 @@ function Amenities() {
 
 
     const navigate = useNavigate();
+
+    const onTop = () => {
+        window.scrollTo(0, 0);
+    }
+    useEffect(() => {
+        onTop()
+    }, [navigate]);
+
   return (
     <Wrapper>
     <Div2>

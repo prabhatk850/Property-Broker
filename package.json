@@ -13,6 +13,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.3",
+    "axios": "^1.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
@@ -20,7 +21,6 @@
     "react-router-dom": "^6.21.1",
     "styled-components": "^6.1.6",
     "vite-plugin-eslint": "^1.8.1"
-    
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

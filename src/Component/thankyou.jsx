@@ -1,16 +1,28 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-height: 100vh;
+height: 90vh;
 `;
 
 function Thankyou() {
-    setTimeout(() => {window.location.href = "/"}, 3000); 
-  
+
+    const navigate = useNavigate();
+
+    const onTop = () => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            navigate('/')
+        }, 3000);
+    }
+    useEffect(() => {
+        onTop()
+    }, [navigate]);
+
     return (
         <Wrapper>
             <img  src="./Thankyou.png" alt="Thank you" />

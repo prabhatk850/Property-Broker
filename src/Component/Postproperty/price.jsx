@@ -1,8 +1,10 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import styled from 'styled-components'
 import Sidebar from './sidebar'
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
+
+
 
 const Wrapper = styled.div`
 margin: 50px 10% 120px;
@@ -169,6 +171,14 @@ function Price() {
 
 
   const navigate = useNavigate();
+
+  const onTop = () => {
+    window.scrollTo(0, 0);
+}
+useEffect(() => {
+    onTop()
+}, [navigate]);
+
   return (
     <Wrapper>
         <Div2>

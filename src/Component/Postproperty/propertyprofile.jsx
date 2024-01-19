@@ -1,9 +1,9 @@
-
+import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
 import Sidebar from './sidebar'
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { useState } from 'react';
+
 
 
 
@@ -661,6 +661,14 @@ const handleclick=()=>{
   
 
   const navigate = useNavigate();
+
+  const onTop = () => {
+    window.scrollTo(0, 0);
+}
+useEffect(() => {
+    onTop()
+}, [navigate]);
+
   return (
     <Wrapper>
        <Div3>

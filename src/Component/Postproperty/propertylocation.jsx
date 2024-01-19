@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import styled from 'styled-components'
 import Sidebar from './sidebar'
 import { useNavigate } from 'react-router-dom';
@@ -108,6 +108,14 @@ function Propertylocation() {
   
 
   const navigate = useNavigate();
+
+  const onTop = () => {
+    window.scrollTo(0, 0);
+}
+useEffect(() => {
+    onTop()
+}, [navigate]);
+
 
   return (
 

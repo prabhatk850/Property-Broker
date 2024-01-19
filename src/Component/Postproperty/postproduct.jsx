@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import Sidebar from './sidebar'
 import styled from 'styled-components'
 import './ocbc.css'
@@ -170,7 +170,12 @@ function Postproduct() {
             }
         }
        
-   
+        const onTop = () => {
+            window.scrollTo(0, 0);
+        }
+        useEffect(() => {
+            onTop()
+        }, [navigate]);
 
     const name = "Prabhat Kumar Verma";
   return (
@@ -186,7 +191,7 @@ function Postproduct() {
             <div style={{margin:"40px 0"}}>
             <SubHeading>I{"'"}m Looking to</SubHeading>
             <div style={{display:"flex"}}>
-            <Div className={style} onClick={handlechange}>Sell</Div>
+            <Div className={style} onClick={handlechange} value={"sell"}>Sell</Div>
             <Div className={style1} onClick={handlechange1} >Rent</Div>
             </div>
             </div>
