@@ -8,8 +8,8 @@ const axiosInstance = axios.create({
     }
 });
 
-export const viewProperty =() => {
-   return axiosInstance.post("/viewproperty").then((response) => {
+export const addProperty =(data) => {
+   return axiosInstance.post("/addproperty",data).then((response) => {
        return response.data;
     }).catch ((error)=> {
         console.log("error",error);

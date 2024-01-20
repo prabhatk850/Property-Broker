@@ -1,12 +1,8 @@
 import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
 import Sidebar from './sidebar'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
-
-
-
-
 
 
 const Wrapper = styled.div`
@@ -260,7 +256,14 @@ const Div4=styled.div``;
 
 
 function Propertyprofile() {
- 
+
+const navigate = useNavigate();
+const location = useLocation();
+const {PreviousValue}=location.state;
+
+const [profileData,setProfileData]=useState(PreviousValue)
+
+
 
 const [type,setType]=useState("gray");
 const [type1,setType1]=useState("gray");
@@ -299,8 +302,8 @@ const [furnish,setFurnish]=useState("gray");
 const [semifurnish,setSemifurnish]=useState("gray");
 const [unfurnish,setUnfurnish]=useState("gray");
 
-const [value,setValue]=useState(0);
-const [value1,setValue1]=useState(0);
+const [closeParking,setCloseParking]=useState(0);
+const [openParking,setOpenParking]=useState(0);
 const [value2,SetValue2]=useState(0);
 const [value3,SetValue3]=useState(0);
 const [value4,SetValue4]=useState(0);
@@ -385,11 +388,11 @@ const handleavailability1=()=>{
 
 
 const handleinc=()=>{
-  setValue(value+1);
+  setCloseParking(closeParking+1);
 }
 
 const handleinc1=()=>{
-  setValue1(value1+1);
+  setOpenParking(openParking+1);
 }
 const handleinc2=()=>{
   SetValue2(value2+1);
@@ -411,14 +414,14 @@ const handleinc6=()=>{
 
 
 const handledec=()=>{
-  if(value>0){
-  setValue(value-1);
+  if(closeParking>0){
+  setCloseParking(closeParking-1);
 }
 }
 
 const handledec1=()=>{
-  if(value1>0){
-  setValue1(value1-1);
+  if(openParking>0){
+  setOpenParking(openParking-1);
 }
 }
 const handledec2=()=>{
@@ -447,42 +450,61 @@ const handledec6=()=>{
 }
 }
 
-const handlefurnish=()=>{
+const handlefurnish=(e)=>{
   setFurnish("red");
   setSemifurnish("gray");
   setUnfurnish("gray");
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"furnishing":value})
 }
 
-const handlesemifurnish=()=>{
+const handlesemifurnish=(e)=>{
   setSemifurnish("red");
   setFurnish("gray");
   setUnfurnish("gray");
+  
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"furnishing":value})
 }
 
-const handleunfurnish=()=>{
+const handleunfurnish=(e)=>{
   setUnfurnish("red");
   setFurnish("gray");
   setSemifurnish("gray");
+
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"furnishing":value})
 }
 
-const handleCheck=()=>{
+const handleCheck=(e)=>{
   setChecked(!checked);
-
-}
-
-const handleCheck1=()=>{
-  setChecked1(!checked1);
-
-}
-
-const handleCheck2=()=>{
-  setChecked2(!checked2);
   
+  const value = e.target.getAttribute('data-value');
+  console.log("first2",value)
+
+  // const tempdata= setProfileData.find((item)=>{item.otherroom===value})
+  // console.log("3",tempdata)
+     checked? setProfileData({...profileData,"otherRoom":[]}):setProfileData({...profileData,"otherRoom":[value]})
 }
 
-const handleCheck3=()=>{
+const handleCheck1=(e)=>{
+  setChecked1(!checked1);
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"otherRoom":[...profileData.otherRoom,value]})
+}
+
+const handleCheck2=(e)=>{
+  handlecolor2();
+  setChecked2(!checked2);
+  const value = e.target.getAttribute('data-value');
+  console.log("first2",value)
+      setProfileData({...profileData,"otherRoom":[...profileData.otherRoom,value]})
+}
+
+const handleCheck3=(e)=>{
   setChecked3(!checked3);
- 
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"otherRoom":[...profileData.otherRoom,value]})
 }
 
 const handlecolor=()=>{
@@ -533,7 +555,7 @@ const handlestyle1=()=>{
 }
 
 
-const handleclick=()=>{
+const handleclick=(e)=>{
      if(type === "gray"){ 
       setType("red");
       setType1("gray");
@@ -541,8 +563,11 @@ const handleclick=()=>{
       setType3("gray");
       setType4("gray");
       }
+      const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bedroom":value})
+      console.log("first",profileData)
  }
-    const handleclick1=()=>{
+    const handleclick1=(e)=>{
         if(type1 === "gray"){ 
         setType1("red");
         setType("gray");
@@ -550,8 +575,10 @@ const handleclick=()=>{
         setType3("gray");
         setType4("gray");
         }
+        const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bedroom":value})
     }
-    const handleclick2=()=>{
+    const handleclick2=(e)=>{
         if(type2 === "gray"){ 
         setType2("red");
         setType1("gray");
@@ -559,8 +586,10 @@ const handleclick=()=>{
         setType3("gray");
         setType4("gray");
         }
+        const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bedroom":value})
     }
-    const handleclick3=()=>{
+    const handleclick3=(e)=>{
         if(type3 === "gray"){ 
         setType3("red");
         setType1("gray");
@@ -568,8 +597,10 @@ const handleclick=()=>{
         setType("gray");
         setType4("gray");
         }
+        const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bedroom":value})
     }
-    const handleclick4=()=>{
+    const handleclick4=(e)=>{
         if(type4 === "gray"){ 
         setType4("red");
         setType1("gray");
@@ -577,9 +608,11 @@ const handleclick=()=>{
         setType3("gray");
         setType("gray");
         }
+        const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bedroom":value})
     }
 
-    const handlebath=()=>{
+    const handlebath=(e)=>{
       if(pype === "gray"){ 
        setPype("red");
        setPype1("gray");
@@ -587,8 +620,10 @@ const handleclick=()=>{
        setPype3("gray");
        setPype4("gray");
        }
+       const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bathroom":value})
   }
-     const handlebath1=()=>{
+     const handlebath1=(e)=>{
          if(pype1 === "gray"){ 
          setPype1("red");
          setPype("gray");
@@ -596,8 +631,10 @@ const handleclick=()=>{
          setPype3("gray");
          setPype4("gray");
          }
+         const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bathroom":value})
      }
-     const handlebath2=()=>{
+     const handlebath2=(e)=>{
          if(pype2 === "gray"){ 
          setPype2("red");
          setPype1("gray");
@@ -605,8 +642,10 @@ const handleclick=()=>{
          setPype3("gray");
          setPype4("gray");
          }
+         const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bathroom":value})
      }
-     const handlebath3=()=>{
+     const handlebath3=(e)=>{
          if(pype3 === "gray"){ 
          setPype3("red");
          setPype1("gray");
@@ -614,8 +653,10 @@ const handleclick=()=>{
          setPype("gray");
          setPype4("gray");
          }
+         const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData,"bathroom":value})
      }
-     const handlebath4=()=>{
+     const handlebath4=(e)=>{
          if(pype4 === "gray"){ 
          setPype4("red");
          setPype1("gray"); 
@@ -623,49 +664,66 @@ const handleclick=()=>{
          setPype3("gray");
          setPype("gray");
          }
+         const value = e.target.getAttribute('data-value');
+      setProfileData({...profileData," bathroom":value})
      }
 
-     const handlebalcony=()=>{
+     const handlebalcony=(e)=>{
       if(hype === "gray"){ 
        setHype("red");
        setHype1("gray");
        setHype2("gray");
        setHype3("gray");
        }
+       const value = e.target.getAttribute('data-value');
+       setProfileData({...profileData,"balcony":value})
   }
-     const handlebalcony1=()=>{
+     const handlebalcony1=(e)=>{
          if(hype1 === "gray"){ 
          setHype1("red");
          setHype("gray");
          setHype2("gray");
          setHype3("gray");
          }
+         const value = e.target.getAttribute('data-value');
+       setProfileData({...profileData,"balcony":value})
      }
-     const handlebalcony2=()=>{
+     const handlebalcony2=(e)=>{
          if(hype2 === "gray"){ 
          setHype2("red");
          setHype1("gray");
          setHype("gray");
          setHype3("gray");
          }
+         const value = e.target.getAttribute('data-value');
+       setProfileData({...profileData,"balcony":value})
      }
-     const handlebalcony3=()=>{
+     const handlebalcony3=(e)=>{
          if(hype3 === "gray"){ 
          setHype3("red");
          setHype1("gray");
          setHype2("gray");
          setHype("gray");
          }
+         const value = e.target.getAttribute('data-value');
+       setProfileData({...profileData,"balcony":value})
      }
+
+     const [carpetArea,setCarpetArea]=useState(0);
+      const [builtupArea,setBuiltupArea]=useState(0); 
+      const [superBuiltupArea,setSuperBuiltupArea]=useState(0);
+
+     
      
   
 
-  const navigate = useNavigate();
+  
 
   const onTop = () => {
     window.scrollTo(0, 0);
 }
 useEffect(() => {
+  console.log("first",PreviousValue)
     onTop()
 }, [navigate]);
 
@@ -680,38 +738,38 @@ useEffect(() => {
         <div className='subheading'>Add Room Details</div>
         <Supersub>No. of bedroom</Supersub>
         <div className='flex'>
-            <Div1 className={type} onClick={handleclick}>1</Div1>
-            <Div1 className={type1} onClick={handleclick1}>2</Div1>
-            <Div1 className={type2} onClick={handleclick2}>3</Div1>
-            <Div1 className={type3} onClick={handleclick3}>4</Div1>
-            <Div1 className={type4} onClick={handleclick4}>4+</Div1>        
+            <Div1 className={type} data-value={"1"} onClick={(e)=>{handleclick(e)}}>1</Div1>
+            <Div1 className={type1} data-value={"2"} onClick={(e)=>{handleclick1(e)}}>2</Div1>
+            <Div1 className={type2} data-value={"3"} onClick={(e)=>{handleclick2(e)}}>3</Div1>
+            <Div1 className={type3} data-value={"4"} onClick={(e)=>{handleclick3(e)}}>4</Div1>
+            <Div1 className={type4} data-value={"4+"} onClick={(e)=>{handleclick4(e)}}>4+</Div1>        
         </div>
         <Supersub>No. of bathroom</Supersub>
         <div className='flex'>
-            <Div1 className={pype} onClick={handlebath}>1</Div1>
-            <Div1 className={pype1} onClick={handlebath1}>2</Div1>
-            <Div1 className={pype2} onClick={handlebath2}>3</Div1>
-            <Div1 className={pype3} onClick={handlebath3}>4</Div1>
-            <Div1 className={pype4} onClick={handlebath4}>4+</Div1>
+            <Div1 className={pype} data-value={"1"} onClick={(e)=>{handlebath(e)}}>1</Div1>
+            <Div1 className={pype1} data-value={"2"} onClick={(e)=>{handlebath1(e)}}>2</Div1>
+            <Div1 className={pype2} data-value={"3"} onClick={(e)=>{handlebath2(e)}}>3</Div1>
+            <Div1 className={pype3} data-value={"4"} onClick={(e)=>{handlebath3(e)}}>4</Div1>
+            <Div1 className={pype4} data-value={"4+"} onClick={(e)=>{handlebath4(e)}}>4+</Div1>
         </div>
         <Supersub>No. of balconies</Supersub>
         <div className='flex'>
-            <Div1 className={hype} onClick={handlebalcony}>1</Div1>
-            <Div1 className={hype1} onClick={handlebalcony1}>2</Div1>
-            <Div1 className={hype2} onClick={handlebalcony2}>3</Div1>
-            <Div1 className={hype3} onClick={handlebalcony3}>4</Div1>
+            <Div1 className={hype} data-value={"1"} onClick={(e)=>{handlebalcony(e)}}>1</Div1>
+            <Div1 className={hype1} data-value={"2"} onClick={(e)=>{handlebalcony1(e)}}>2</Div1>
+            <Div1 className={hype2} data-value={"3"} onClick={(e)=>{handlebalcony2(e)}}>3</Div1>
+            <Div1 className={hype3} data-value={"4"} onClick={(e)=>{handlebalcony3(e)}}>4</Div1>
         </div>
 
         <div className='subheading'>Add Area Details</div>
        
         <Div>
-        <Input placeholder='Carpet Area'></Input>
-        <Select>
-            <Choice selected>Sq.ft</Choice>
-            <Choice>Sq.yard</Choice>
-            <Choice>Sq.m</Choice>
-            <Choice>Acres</Choice>
-            <Choice>Bigha</Choice>
+        <Input placeholder='Carpet Area' onChange={(e)=>{setCarpetArea(e.target.value)}}></Input>
+        <Select onChange={(e)=>{setProfileData({...profileData,"area":[{[carpetArea]:e.target.value}]})}}>
+            <Choice value={"Sq.ft"} selected>Sq.ft</Choice>
+            <Choice value={"Sq.yard"}>Sq.yard</Choice>
+            <Choice value={"Sq.m"}>Sq.m</Choice>
+            <Choice value={"Acres"}>Acres</Choice>
+            <Choice value={"Bigha"}>Bigha</Choice>
         </Select>
         </Div>
 
@@ -722,25 +780,25 @@ useEffect(() => {
 
         <div className={style}>
         <Div>
-        <Input  placeholder='Built-up Area'></Input>
-        <Select>
-            <Choice selected>Sq.ft</Choice>
-            <Choice>Sq.yard</Choice>
-            <Choice>Sq.m</Choice>
-            <Choice>Acres</Choice>
-            <Choice>Bigha</Choice>
+        <Input onChange={(e)=>{setBuiltupArea(e.target.value)}}  placeholder='Built-up Area'></Input>
+        <Select onChange={(e)=>{setProfileData({...profileData,"area":[...profileData.area,{[builtupArea]:e.target.value}]})}}>
+            <Choice value={"Sq.ft"} selected>Sq.ft</Choice>
+            <Choice value={"Sq.yard"}>Sq.yard</Choice>
+            <Choice value={"Sq.m"}>Sq.m</Choice>
+            <Choice value={"Acres"}>Acres</Choice>
+            <Choice value={"Bigha"}>Bigha</Choice>
         </Select>
         </Div>
         </div>
         <div className={style1}>
         <Div>
-        <Input  placeholder='Super Built-up Area'></Input>
-        <Select>
-            <Choice selected>Sq.ft</Choice>
-            <Choice>Sq.yard</Choice>
-            <Choice>Sq.m</Choice>
-            <Choice>Acres</Choice>
-            <Choice>Bigha</Choice>
+        <Input  onChange={(e)=>{setSuperBuiltupArea(e.target.value)}} placeholder='Super Built-up Area'></Input>
+        <Select onChange={(e)=>{setProfileData({...profileData,"area":[...profileData.area,{[superBuiltupArea]:e.target.value}]})}}>
+            <Choice value={"Sq.ft"} selected>Sq.ft</Choice>
+            <Choice value={"Sq.yard"}>Sq.yard</Choice>
+            <Choice value={"Sq.m"}>Sq.m</Choice>
+            <Choice value={"Acres"}>Acres</Choice>
+            <Choice value={"Bigha"}>Bigha</Choice>
         </Select>
         </Div>
         </div>
@@ -748,25 +806,25 @@ useEffect(() => {
         <div className='subheading'>Other Rooms</div>
         <Flex>
           <div className='od' onClick={handlecolor}>
-        <SButton1 className={color}  onClick={handleCheck} >{checked?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Pooja Room</div></SButton1>
+        <SButton1 className={color} >{checked?<div>✔️ </div>:<div>➕</div>} <div data-value={"Pooja Room"} onClick={(e)=>{handleCheck(e)}} style={{padding:"0 0 0 7px"}}>Pooja Room</div></SButton1>
         </div>
         <div className='od' onClick={handlecolor1}>
-        <SButton1 className={color1}  onClick={handleCheck1} >{checked1?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Study Room</div></SButton1>
+        <SButton1 className={color1} >{checked1?<div>✔️ </div>:<div>➕</div>} <div data-value={"Study Room"} onClick={(e)=>{handleCheck1(e)}} style={{padding:"0 0 0 7px"}}>Study Room</div></SButton1>
         </div>
         </Flex>   
         <Flex>  
-        <div className='od' onClick={handlecolor2}>  
-        <SButton1 className={color2}  onClick={handleCheck2} >{checked2?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Store Room</div></SButton1>
+        <div className='od' onClick={handlecolor2} >  
+        <SButton1 className={color2} >{checked2?<div>✔️ </div>:<div>➕</div>} <div data-value={"Store Room"} onClick={(e)=>{handleCheck2(e)}} style={{padding:"0 0 0 7px"}}>Store Room</div></SButton1>
         </div>
         <div className='od' onClick={handlecolor3}>
-        <SButton1 className={color3}  onClick={handleCheck3} >{checked3?<div>✔️ </div>:<div>➕</div>} <div style={{padding:"0 0 0 7px"}}>Servent Room</div></SButton1>
+        <SButton1 className={color3} >{checked3?<div>✔️ </div>:<div>➕</div>} <div data-value={"Servent Room"} onClick={(e)=>{handleCheck3(e)}} style={{padding:"0 0 0 7px"}}>Servent Room</div></SButton1>
         </div>
         </Flex>
        <div className='subheading'>Furnishing</div>
        <Flex>
-           <div className='od' onClick={handledisplay}><Div5 className={furnish} onClick={handlefurnish}>Full-Furnished</Div5></div>
-           <div className='od' onClick={handledisplay}><Div5 className={semifurnish} onClick={handlesemifurnish}>Semi-Furnished</Div5></div>
-           <div className='od' onClick={handledisplayn}> <Div5 className={unfurnish} onClick={handleunfurnish}>Un-Furnished</Div5></div>
+           <div className='od' onClick={handledisplay}><Div5 className={furnish} data-value={"Full-Furnished"} onClick={(e)=>{handlefurnish(e)}}>Full-Furnished</Div5></div>
+           <div className='od' onClick={handledisplay}><Div5 className={semifurnish} data-value={"Semi-Furnished"} onClick={(e)=>{handlesemifurnish(e)}}>Semi-Furnished</Div5></div>
+           <div className='od' onClick={handledisplayn}> <Div5 className={unfurnish} data-value={"Un-Furnished"} onClick={(e)=>{handleunfurnish(e)}}>Un-Furnished</Div5></div>
        </Flex>
        
         <Furnish style={{display}}>
@@ -783,7 +841,7 @@ useEffect(() => {
         <Supersub style={{fontSize:"18px",marginRight:"20px"}}>Fan</Supersub>
         <div className='flex'>
         <Div2 onClick={handledec3}>-</Div2>
-        <BB style={{marginRight:"10px",color:"gray"}} >{value3}</BB>
+        <BB style={{marginRight:"10px",color:"gray"}}>{value3}</BB>
         <Div2 onClick={handleinc3}>+</Div2>
         </div></div>
         </Flex>
@@ -865,14 +923,14 @@ useEffect(() => {
         <div style={{marginRight:"40px"}} className='flex'>
         <Supersub style={{fontSize:"15px",marginRight:"20px"}}>Close Parking</Supersub>
         <Div2 onClick={handledec}>-</Div2>
-        <BB style={{marginRight:"10px",color:"gray"}} >{value}</BB>
-        <Div2 onClick={handleinc}>+</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{closeParking}</BB>
+        <Div2 data-value={"closeParking"} onClick={handleinc}>+</Div2>
         </div>
         <div className='flex'>
         <Supersub style={{fontSize:"15px",marginRight:"20px"}}>Open Parking</Supersub>
         <Div2 onClick={handledec1}>-</Div2>
-        <BB style={{marginRight:"10px",color:"gray"}} >{value1}</BB>
-        <Div2 onClick={handleinc1}>+</Div2>
+        <BB style={{marginRight:"10px",color:"gray"}} >{openParking}</BB>
+        <Div2 data-value={"openParking"} onClick={handleinc1}>+</Div2>
         </div>
        </Flex>
        

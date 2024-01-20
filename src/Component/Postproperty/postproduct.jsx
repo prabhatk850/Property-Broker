@@ -100,22 +100,29 @@ display: flex;
 
 
 function Postproduct() {
-
+    
     const navigate=useNavigate();
+    const[postPropertyData,setPostPropertyData]=useState({});
     const [style,setStyle]=useState("gray");
     const [style1,setStyle1]=useState("gray");
     
-    const handlechange=()=>{
+    const handlechange=(e)=>{
        if(style === "gray"){ 
         setStyle("red");
         setStyle1("gray");
         }
+        const value = e.target.getAttribute('data-value');
+        setPostPropertyData({...postPropertyData,"propertyFor":value})
+        console.log("first1",postPropertyData)
     }
-    const handlechange1=()=>{
+    const handlechange1=(e)=>{
        if(style1 === "gray"){
         setStyle1("red");
         setStyle("gray");
        } 
+       const value = e.target.getAttribute('data-value');
+       setPostPropertyData({...postPropertyData,"propertyFor":value})
+       console.log("first",postPropertyData)
     }
 
     const [type,setType]=useState("gray");
@@ -124,7 +131,8 @@ function Postproduct() {
     const [type3,setType3]=useState("gray");
     const [type4,setType4]=useState("gray");
 
-    const handleclick=()=>{
+
+    const handleclick=(e)=>{
          if(type === "gray"){ 
           setType("red");
           setType1("gray");
@@ -132,8 +140,10 @@ function Postproduct() {
           setType3("gray");
           setType4("gray");
           }
+          const value = e.target.getAttribute('data-value');
+          setPostPropertyData({...postPropertyData,"propertyType":value})
      }
-        const handleclick1=()=>{
+        const handleclick1=(e)=>{
             if(type1 === "gray"){ 
             setType1("red");
             setType("gray");
@@ -141,8 +151,10 @@ function Postproduct() {
             setType3("gray");
             setType4("gray");
             }
+            const value = e.target.getAttribute('data-value');
+          setPostPropertyData({...postPropertyData,"propertyType":value})
         }
-        const handleclick2=()=>{
+        const handleclick2=(e)=>{
             if(type2 === "gray"){ 
             setType2("red");
             setType1("gray");
@@ -150,8 +162,10 @@ function Postproduct() {
             setType3("gray");
             setType4("gray");
             }
+            const value = e.target.getAttribute('data-value');
+          setPostPropertyData({...postPropertyData,"propertyType":value})
         }
-        const handleclick3=()=>{
+        const handleclick3=(e)=>{
             if(type3 === "gray"){ 
             setType3("red");
             setType1("gray");
@@ -159,8 +173,10 @@ function Postproduct() {
             setType("gray");
             setType4("gray");
             }
+            const value = e.target.getAttribute('data-value');
+          setPostPropertyData({...postPropertyData,"propertyType":value})
         }
-        const handleclick4=()=>{
+        const handleclick4=(e)=>{
             if(type4 === "gray"){ 
             setType4("red");
             setType1("gray");
@@ -168,6 +184,8 @@ function Postproduct() {
             setType3("gray");
             setType("gray");
             }
+            const value = e.target.getAttribute('data-value');
+          setPostPropertyData({...postPropertyData,"propertyType":value})
         }
        
         const onTop = () => {
@@ -191,8 +209,8 @@ function Postproduct() {
             <div style={{margin:"40px 0"}}>
             <SubHeading>I{"'"}m Looking to</SubHeading>
             <div style={{display:"flex"}}>
-            <Div className={style} onClick={handlechange} value={"sell"}>Sell</Div>
-            <Div className={style1} onClick={handlechange1} >Rent</Div>
+            <Div className={style} data-value={"sell"} onClick={(e)=>{handlechange(e)}} >Sell</Div>
+            <Div className={style1} data-value={"rent"} onClick={(e)=>{handlechange1(e)}} >Rent</Div>
             </div>
             </div>
             
@@ -200,20 +218,20 @@ function Postproduct() {
             <SubHeading>What kind of property do you have?</SubHeading>
             
                 <Flex>
-            <Div1 className={type} onClick={handleclick}>Flat/Appartment</Div1>
-            <Div1 className={type1} onClick={handleclick1} >Independent floor</Div1>
+            <Div1 className={type} data-value={"Flat/Apprtment"} onClick={(e)=>{handleclick(e)}}>Flat/Appartment</Div1>
+            <Div1 className={type1} data-value={"Independent Floor"} onClick={(e)=>{handleclick1(e)}} >Independent floor</Div1>
                 </Flex>
                 <Flex>
-            <Div1 className={type2} onClick={handleclick2} >Independent House</Div1>
-            <Div1 className={type3} onClick={handleclick3} >Farm House</Div1>
+            <Div1 className={type2} data-value={"Independent House"} onClick={(e)=>{handleclick2(e)}} >Independent House</Div1>
+            <Div1 className={type3} data-value={"Farm House"} onClick={(e)=>{handleclick3(e)}} >Farm House</Div1>
                 </Flex>             
                 <Flex>
-            <Div1 className={type4} onClick={handleclick4} >Other</Div1>
+            <Div1 className={type4} data-value={"Other"} onClick={(e)=>{handleclick4(e)}} >Other</Div1>
                 </Flex>
             </div>
            
             <div style={{margin:"50px 0 0 0"}}>
-            <Button onClick={()=>{navigate("/addproperty/location")}}> Continue</Button>
+            <Button onClick={()=>{navigate("/addproperty/location",{state:{"PreviousValue":postPropertyData}})}}> Continue</Button>
             </div>
         </Content>
     </Wrapper>

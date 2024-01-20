@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import styled from 'styled-components'
 import Sidebar from './sidebar'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 const Wrapper = styled.div`
@@ -109,11 +109,18 @@ function Propertylocation() {
 
   const navigate = useNavigate();
 
+  const location =  useLocation();
+  const {PreviousValue} = location.state;
+
+  const [locationData,setLocationData] = useState(PreviousValue);
+  
   const onTop = () => {
     window.scrollTo(0, 0);
 }
 useEffect(() => {
     onTop()
+    console.log("state",PreviousValue)
+
 }, [navigate]);
 
 
@@ -129,7 +136,8 @@ useEffect(() => {
         <Heading>Where is your property located?</Heading>
           <Div>
           <SubHeading>Enter Location</SubHeading>
-            <Input type="text" list='locations' placeholder="Enter Location"/>
+            <Input type="text" list='locations' onChange={(e)=>{setLocationData({...locationData,"location":e.target.value})}} placeholder="Enter Location"/>
+            {console.log("location",locationData)}
             <datalist id="locations">
                 <option value="Delhi">Delhi</option>
                 <option value="Ghaziabad">Ghaziabad</option>
@@ -140,21 +148,21 @@ useEffect(() => {
 
           <Div>
           <SubHeading>Please Enter Appartment / Society</SubHeading>
-          <Input type="text" placeholder="Appartment / Society"/>
+          <Input type="text" onChange={(e)=>{setLocationData({...locationData,"appartmentName":e.target.value})}} placeholder="Appartment / Society"/>
           </Div>
 
           <Div>
           <SubHeading>Enter Locality</SubHeading>
-          <Input type="text" placeholder="Locality"/>
+          <Input type="text" onChange={(e)=>{setLocationData({...locationData,"locality":e.target.value})}} placeholder="Locality"/>
           </Div>
 
           <Div>
           <SubHeading>Enter House no.</SubHeading>
-          <Input type="text" placeholder="House"/>
+          <Input type="text" onChange={(e)=>{setLocationData({...locationData,"houseNo":e.target.value})}} placeholder="House"/>
           </Div>
 
           <div style={{margin:"30px 0 0 0"}}>
-            <Button onClick={()=>{navigate("/addproperty/propertyprofile")}}> Continue</Button>
+            <Button onClick={()=>{navigate("/addproperty/propertyprofile",{state:{"PreviousValue":locationData}})}}> Continue</Button>
             </div>
         </Content>
     </Wrapper>
