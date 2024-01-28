@@ -263,6 +263,15 @@ const {PreviousValue}=location.state;
 
 const [profileData,setProfileData]=useState(PreviousValue)
 
+const updateOtherRoom = (value) => {
+  if (profileData.otherRoom === undefined) {
+    setProfileData({ ...profileData, "otherRoom": [value] });
+  } else {
+    setProfileData({ ...profileData, "otherRoom": [...profileData.otherRoom, value] });
+    console.log("firsttt", profileData.otherRoom);
+  }
+  console.log("firstu", value);
+};
 
 
 const [type,setType]=useState("gray");
@@ -348,66 +357,156 @@ const handlepropertyage1=()=>{
   }
 }
 
-const handleage=()=>{
+const handleage=(e)=>{
   setAge("red");
   setAge1("gray");
   setAge2("gray");
   setAge3("gray");
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"ageOfProperty":value})
 }
 
-const handleage1=()=>{
+const handleage1=(e)=>{
   setAge1("red");
   setAge("gray");
   setAge2("gray");
   setAge3("gray");
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"ageOfProperty":value})
 }
 
-const handleage2=()=>{
+const handleage2=(e)=>{
   setAge2("red");
   setAge1("gray");
   setAge("gray");
   setAge3("gray");
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"ageOfProperty":value})
 }
 
-const handleage3=()=>{
+const handleage3=(e)=>{
   setAge3("red");
   setAge1("gray");
   setAge2("gray");
   setAge("gray");
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"ageOfProperty":value})
 }
 
-const handleavailability=()=>{
+const handleavailability=(e)=>{
   setReady("red");
   setUnderconstruct("gray");
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"propertyAvailable":value})
 }
 
-const handleavailability1=()=>{
+const handleavailability1=(e)=>{
   setUnderconstruct("red");
   setReady("gray");
+  const value = e.target.getAttribute('data-value');
+  setProfileData({...profileData,"propertyAvailable":value})
 }
 
 
 const handleinc=()=>{
   setCloseParking(closeParking+1);
+  
+  setProfileData(prevState => ({
+    ...prevState,
+    closeParking: prevState.closeParking ? prevState.closeParking + 1 : 1,
+  }));
 }
 
 const handleinc1=()=>{
   setOpenParking(openParking+1);
+  setProfileData(prevState => ({
+    ...prevState,
+    openParking: prevState.openParking ? prevState.openParking + 1 : 1,
+  }));
 }
 const handleinc2=()=>{
   SetValue2(value2+1);
+  setProfileData({...profileData,"furnishType":[{"light":value2+1}]})
 }
-const handleinc3=()=>{
-  SetValue3(value3+1);
-}
+
+  const handleinc3 = () => {
+    SetValue3(value3 + 1);
+
+    // Find the index of the object that contains the 'fan' property
+    const index = profileData.furnishType.findIndex(item => 'fan' in item);
+
+    if (index !== -1) {
+      // If the 'fan' property exists, update it
+      setProfileData(prevState => {
+        const newFurnishType = [...prevState.furnishType];
+        newFurnishType[index] = { 'fan': value3 + 1 };
+        return { ...prevState, 'furnishType': newFurnishType };
+      });
+    } else {
+      // If the 'fan' property doesn't exist, add it
+      setProfileData(prevState => ({
+        ...prevState,
+        'furnishType': [...prevState.furnishType, { 'fan': value3 + 1 }]
+      }));
+    }
+  }
+
 const handleinc4=()=>{
   SetValue4(value4+1);
+  const index = profileData.furnishType.findIndex(item => 'tv' in item);
+
+    if (index !== -1) {
+      // If the 'fan' property exists, update it
+      setProfileData(prevState => {
+        const newFurnishType = [...prevState.furnishType];
+        newFurnishType[index] = { 'tv': value4 + 1 };
+        return { ...prevState, 'furnishType': newFurnishType };
+      });
+    } else {
+      // If the 'fan' property doesn't exist, add it
+      setProfileData(prevState => ({
+        ...prevState,
+        'furnishType': [...prevState.furnishType, { 'tv': value4 + 1 }]
+      }));
+    }
 }
 const handleinc5=()=>{
   SetValue5(value5+1);
+  const index = profileData.furnishType.findIndex(item => 'ac' in item);
+
+    if (index !== -1) {
+      // If the 'fan' property exists, update it
+      setProfileData(prevState => {
+        const newFurnishType = [...prevState.furnishType];
+        newFurnishType[index] = { 'ac': value5 + 1 };
+        return { ...prevState, 'furnishType': newFurnishType };
+      });
+    } else {
+      // If the 'fan' property doesn't exist, add it
+      setProfileData(prevState => ({
+        ...prevState,
+        'furnishType': [...prevState.furnishType, { 'ac': value5 + 1 }]
+      }));
+    }
 }
 const handleinc6=()=>{
   SetValue6(value6+1);
+  const index = profileData.furnishType.findIndex(item => 'gyser' in item);
+
+    if (index !== -1) {
+      // If the 'fan' property exists, update it
+      setProfileData(prevState => {
+        const newFurnishType = [...prevState.furnishType];
+        newFurnishType[index] = { 'gyser': value6 + 1 };
+        return { ...prevState, 'furnishType': newFurnishType };
+      });
+    } else {
+      // If the 'fan' property doesn't exist, add it
+      setProfileData(prevState => ({
+        ...prevState,
+        'furnishType': [...prevState.furnishType, { 'gyser': value6 + 1 }]
+      }));
+    }
 }
 
 
@@ -416,37 +515,123 @@ const handleinc6=()=>{
 const handledec=()=>{
   if(closeParking>0){
   setCloseParking(closeParking-1);
+
+  setProfileData(prevState => ({
+    ...prevState,
+    closeParking: prevState.closeParking ? prevState.closeParking - 1 : 1,
+  }));
 }
 }
 
 const handledec1=()=>{
   if(openParking>0){
   setOpenParking(openParking-1);
+  setProfileData(prevState => ({
+    ...prevState,
+    openParking: prevState.openParking ? prevState.openParking - 1 : 1,
+  }));
+
 }
 }
 const handledec2=()=>{
   if(value2>0){
   SetValue2(value2-1);
+
+  const index = profileData.furnishType.findIndex(item => 'light' in item);
+
+  if (index !== -1) {
+    // If the 'fan' property exists, update it
+    setProfileData(prevState => {
+      const newFurnishType = [...prevState.furnishType];
+      newFurnishType[index] = { 'light': value2 - 1 };
+      return { ...prevState, 'furnishType': newFurnishType };
+    });
+  } else {
+    setProfileData(prevState => ({
+      ...prevState,
+      'furnishType': [...prevState.furnishType, { 'light': value2 - 1 }]
+    }));
 }
-}
+}}
 const handledec3=()=>{
   if(value3>0){
   SetValue3(value3-1);
+  const index = profileData.furnishType.findIndex(item => 'fan' in item);
+
+  if (index !== -1) {
+    // If the 'fan' property exists, update it
+    setProfileData(prevState => {
+      const newFurnishType = [...prevState.furnishType];
+      newFurnishType[index] = { 'fan': value3 - 1 };
+      return { ...prevState, 'furnishType': newFurnishType };
+    });
+  } else {
+    setProfileData(prevState => ({
+      ...prevState,
+      'furnishType': [...prevState.furnishType, { 'fan': value3 - 1 }]
+    }));
+}
 }
 }
 const handledec4=()=>{
   if(value4>0){
   SetValue4(value4-1);
+  const index = profileData.furnishType.findIndex(item => 'tv' in item);
+
+  if (index !== -1) {
+    // If the 'fan' property exists, update it
+    setProfileData(prevState => {
+      const newFurnishType = [...prevState.furnishType];
+      newFurnishType[index] = { 'tv': value4 - 1 };
+      return { ...prevState, 'furnishType': newFurnishType };
+    });
+  } else {
+    setProfileData(prevState => ({
+      ...prevState,
+      'furnishType': [...prevState.furnishType, { 'tv': value4 - 1 }]
+    }));
+
+  }
 }
 }
 const handledec5=()=>{
   if(value5>0){
   SetValue5(value5-1);
+  const index = profileData.furnishType.findIndex(item => 'ac' in item);
+
+  if (index !== -1) {
+    // If the 'fan' property exists, update it
+    setProfileData(prevState => {
+      const newFurnishType = [...prevState.furnishType];
+      newFurnishType[index] = { 'ac': value5 - 1 };
+      return { ...prevState, 'furnishType': newFurnishType };
+    });
+  } else {
+    setProfileData(prevState => ({
+      ...prevState,
+      'furnishType': [...prevState.furnishType, { 'ac': value5 - 1 }]
+    }));
+  }
 }
 }
 const handledec6=()=>{
   if(value6>0){
   SetValue6(value6-1);
+  const index = profileData.furnishType.findIndex(item => 'gyser' in item);
+
+  if (index !== -1) {
+    // If the 'fan' property exists, update it
+    setProfileData(prevState => {
+      const newFurnishType = [...prevState.furnishType];
+      newFurnishType[index] = { 'gyser': value6 - 1 };
+      return { ...prevState, 'furnishType': newFurnishType };
+    });
+  } else {
+    setProfileData(prevState => ({
+      ...prevState,
+      'furnishType': [...prevState.furnishType, { 'gyser': value6 - 1 }]
+    }));
+  }
 }
 }
 
@@ -476,46 +661,27 @@ const handleunfurnish=(e)=>{
   setProfileData({...profileData,"furnishing":value})
 }
 
-const handleCheck=(e)=>{
-  setChecked(!checked);
-  
-  const value = e.target.getAttribute('data-value');
-  console.log("first2",value)
 
-  // const tempdata= setProfileData.find((item)=>{item.otherroom===value})
-  // console.log("3",tempdata)
-     checked? setProfileData({...profileData,"otherRoom":[]}):setProfileData({...profileData,"otherRoom":[value]})
-}
-
-const handleCheck1=(e)=>{
-  setChecked1(!checked1);
-  const value = e.target.getAttribute('data-value');
-  setProfileData({...profileData,"otherRoom":[...profileData.otherRoom,value]})
-}
-
-const handleCheck2=(e)=>{
-  handlecolor2();
-  setChecked2(!checked2);
-  const value = e.target.getAttribute('data-value');
-  console.log("first2",value)
-      setProfileData({...profileData,"otherRoom":[...profileData.otherRoom,value]})
-}
-
-const handleCheck3=(e)=>{
-  setChecked3(!checked3);
-  const value = e.target.getAttribute('data-value');
-  setProfileData({...profileData,"otherRoom":[...profileData.otherRoom,value]})
-}
-
-const handlecolor=()=>{
+const handlecolor=(e)=>{
   if(color === "gray"){
     setColor("red");
   }else{
     setColor("gray")
   }
+  setChecked(!checked);
+  
+  const value = e.target.getAttribute('data-value');
+  console.log("first2",value)
+ 
+    updateOtherRoom(value);
+  
 }
 
-const handlecolor1=()=>{
+const handlecolor1=(e)=>{
+  
+  setChecked1(!checked1);
+  const value = e.target.getAttribute('data-value');
+  updateOtherRoom(value);
   if(color1 === "gray"){
     setColor1("red");
   }else{
@@ -523,20 +689,31 @@ const handlecolor1=()=>{
   }
 }
 
-const handlecolor2=()=>{
+const handlecolor2=(e)=>{
   if(color2 === "gray"){
     setColor2("red");
   }else{
     setColor2("gray")
   }
+  setChecked2(!checked2);
+  const value = e.target.getAttribute('data-value');
+  console.log("first2",value)
+ 
+    updateOtherRoom(value);
+  
 }
 
-const handlecolor3=()=>{
+const handlecolor3=(e)=>{
   if(color3 === "gray"){
     setColor3("red");
   }else{
     setColor3("gray")
   }
+  setChecked3(!checked3);
+  const value = e.target.getAttribute('data-value');
+ 
+    updateOtherRoom(value);
+ 
 }
 
 
@@ -713,8 +890,164 @@ const handleclick=(e)=>{
       const [builtupArea,setBuiltupArea]=useState(0); 
       const [superBuiltupArea,setSuperBuiltupArea]=useState(0);
 
+      const[checkbox,setCheckbox]=useState(true);
+      const[checkbox1,setCheckbox1]=useState(true);
+      const[checkbox2,setCheckbox2]=useState(true);
+      const[checkbox3,setCheckbox3]=useState(true);
+      const[checkbox4,setCheckbox4]=useState(true);
+      const[checkbox5,setCheckbox5]=useState(true);
+      const[checkbox6,setCheckbox6]=useState(true);
+      
+
+
+      const handlecheckbox=()=>{
+        setCheckbox(!checkbox);
+
+        const index = profileData.furnishType.findIndex(item => 'sofa' in item);
+
+        if (index !== -1) {
+          // If the 'sofa' property exists, update it
+          setProfileData(prevState => {
+            const newFurnishType = [...prevState.furnishType];
+            newFurnishType[index] = { 'sofa': checkbox };
+            return { ...prevState, 'furnishType': newFurnishType };
+          });
+        } else {
+          // If the 'sofa' property doesn't exist, add it
+          setProfileData(prevState => ({
+            ...prevState,
+            'furnishType': [...prevState.furnishType, { 'sofa': checkbox }]
+          }));
+        }
+      }
      
-     
+
+      const handlecheckbox1=()=>{
+        setCheckbox1(!checkbox1);
+        const index = profileData.furnishType.findIndex(item => 'washingMachine' in item);
+
+        if (index !== -1) {
+          // If the 'diningTable' property exists, update it
+          setProfileData(prevState => {
+            const newFurnishType = [...prevState.furnishType];
+            newFurnishType[index] = { 'washingMachine': checkbox1 };
+            return { ...prevState, 'furnishType': newFurnishType };
+          });
+        } else {
+          // If the 'diningTable' property doesn't exist, add it
+          setProfileData(prevState => ({
+            ...prevState,
+            'furnishType': [...prevState.furnishType, { 'washingMachine': checkbox1 }]
+          }));
+        }
+      }
+
+      const handlecheckbox2=()=>{
+        setCheckbox2(!checkbox2);
+        const index = profileData.furnishType.findIndex(item => 'waterPurifier' in item);
+
+        if (index !== -1) {
+          // If the 'diningTable' property exists, update it
+          setProfileData(prevState => {
+            const newFurnishType = [...prevState.furnishType];
+            newFurnishType[index] = { 'waterPurifier': checkbox2 };
+            return { ...prevState, 'furnishType': newFurnishType };
+          });
+        } else {
+          // If the 'diningTable' property doesn't exist, add it
+          setProfileData(prevState => ({
+            ...prevState,
+            'furnishType': [...prevState.furnishType, { 'waterPurifier': checkbox2 }]
+          }));
+        } 
+      }
+
+      const handlecheckbox3=()=>{
+        setCheckbox3(!checkbox3);
+        const index = profileData.furnishType.findIndex(item => 'microWave' in item);
+
+        if (index !== -1) {
+          // If the 'diningTable' property exists, update it
+          setProfileData(prevState => {
+            const newFurnishType = [...prevState.furnishType];
+            newFurnishType[index] = { 'microWave': checkbox3 };
+            return { ...prevState, 'furnishType': newFurnishType };
+          });
+        } else {
+          // If the 'diningTable' property doesn't exist, add it
+          setProfileData(prevState => ({
+            ...prevState,
+            'furnishType': [...prevState.furnishType, { 'microWave': checkbox3 }]
+          }));
+        } 
+      }
+      
+
+      const handlecheckbox4=()=>{
+        setCheckbox4(!checkbox4);
+        const index = profileData.furnishType.findIndex(item => 'modularKitchen' in item);
+
+        if (index !== -1) { 
+          // If the 'modularKitchen' property exists, update it
+          setProfileData(prevState => {
+            const newFurnishType = [...prevState.furnishType];
+            newFurnishType[index] = { 'modularKitchen': checkbox4 };
+            return { ...prevState, 'furnishType': newFurnishType };
+          });
+        } else {
+          // If the 'modularKitchen' property doesn't exist, add it
+          setProfileData(prevState => ({
+            ...prevState,
+            'furnishType': [...prevState.furnishType, { 'modularKitchen': checkbox4 }]
+          }));
+        }
+      }
+
+
+      const handlecheckbox5=()=>{
+
+        setCheckbox5(!checkbox5);
+        const index = profileData.furnishType.findIndex(item => 'fridge' in item);
+
+        if (index !== -1) {
+          // If the 'fridge' property exists, update it
+          setProfileData(prevState => {
+            const newFurnishType = [...prevState.furnishType];
+            newFurnishType[index] = { 'fridge': checkbox5 };
+            return { ...prevState, 'furnishType': newFurnishType };
+          });
+        } else {
+          // If the 'fridge' property doesn't exist, add it
+          setProfileData(prevState => ({
+            ...prevState,
+            'furnishType': [...prevState.furnishType, { 'fridge': checkbox5 }]
+          }));
+        }
+      }
+
+      const handlecheckbox6=()=>{
+        setCheckbox6(!checkbox6);
+        const index = profileData.furnishType.findIndex(item => 'stove' in item);
+
+        if (index !== -1) {
+          // If the 'stove' property exists, update it
+          setProfileData(prevState => {
+            const newFurnishType = [...prevState.furnishType];
+            newFurnishType[index] = { 'stove': checkbox6 };
+            return { ...prevState, 'furnishType': newFurnishType };
+          });
+        } else {
+          // If the 'stove' property doesn't exist, add it
+          setProfileData(prevState => ({
+            ...prevState,
+            'furnishType': [...prevState.furnishType, { 'stove': checkbox6 }]
+          }));
+        }
+      }
+
+
+
+
   
 
   
@@ -805,19 +1138,19 @@ useEffect(() => {
 
         <div className='subheading'>Other Rooms</div>
         <Flex>
-          <div className='od' onClick={handlecolor}>
-        <SButton1 className={color} >{checked?<div>✔️ </div>:<div>➕</div>} <div data-value={"Pooja Room"} onClick={(e)=>{handleCheck(e)}} style={{padding:"0 0 0 7px"}}>Pooja Room</div></SButton1>
+          <div className='od' >
+        <SButton1 className={color} >{checked?<div>✔️ </div>:<div>➕</div>} <div data-value={"Pooja Room"} onClick={handlecolor} style={{padding:"0 0 0 7px"}}>Pooja Room</div></SButton1>
         </div>
-        <div className='od' onClick={handlecolor1}>
-        <SButton1 className={color1} >{checked1?<div>✔️ </div>:<div>➕</div>} <div data-value={"Study Room"} onClick={(e)=>{handleCheck1(e)}} style={{padding:"0 0 0 7px"}}>Study Room</div></SButton1>
+        <div className='od' >
+        <SButton1 className={color1} >{checked1?<div>✔️ </div>:<div>➕</div>} <div data-value={"Study Room"}  onClick={handlecolor1} style={{padding:"0 0 0 7px"}}>Study Room</div></SButton1>
         </div>
         </Flex>   
         <Flex>  
-        <div className='od' onClick={handlecolor2} >  
-        <SButton1 className={color2} >{checked2?<div>✔️ </div>:<div>➕</div>} <div data-value={"Store Room"} onClick={(e)=>{handleCheck2(e)}} style={{padding:"0 0 0 7px"}}>Store Room</div></SButton1>
+        <div className='od' >  
+        <SButton1 className={color2} >{checked2?<div>✔️ </div>:<div>➕</div>} <div data-value={"Store Room"} onClick={handlecolor2} style={{padding:"0 0 0 7px"}}>Store Room</div></SButton1>
         </div>
-        <div className='od' onClick={handlecolor3}>
-        <SButton1 className={color3} >{checked3?<div>✔️ </div>:<div>➕</div>} <div data-value={"Servent Room"} onClick={(e)=>{handleCheck3(e)}} style={{padding:"0 0 0 7px"}}>Servent Room</div></SButton1>
+        <div className='od' >
+        <SButton1 className={color3} >{checked3?<div>✔️ </div>:<div>➕</div>} <div data-value={"Servent Room"} onClick={handlecolor3} style={{padding:"0 0 0 7px"}}>Servent Room</div></SButton1>
         </div>
         </Flex>
        <div className='subheading'>Furnishing</div>
@@ -870,7 +1203,7 @@ useEffect(() => {
         <Div2 onClick={handleinc6}>+</Div2>
         </div></div>
         <div style={{display:"Flex"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Button1 type='checkbox' onChange={handlecheckbox} style={{height:"20px",width:"20px"}}></Button1>
           <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Sofa</Supersub>
         </div>
         </Flex>
@@ -878,41 +1211,33 @@ useEffect(() => {
 <Flex1>
         <div style={{marginRight:"11%"}}>
         <div style={{display:"Flex",margin:"15px 0 0 0"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Button1 type='checkbox' onChange={handlecheckbox1} style={{height:"20px",width:"20px"}}></Button1>
           <Supersub style={{fontSize:"18px",padding:"0 10px 0 0",margin:"0"}}>Washing machine</Supersub>
         </div>
         <div style={{display:"Flex",minWidth:"20%" ,marginTop:"15px"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Button1 type='checkbox'onChange={handlecheckbox2} style={{height:"20px",width:"20px"}}></Button1>
           <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Micro Wave</Supersub>
         </div>
         
         <div style={{display:"Flex",minWidth:"23%" ,margin:"15px 0 0 0"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Button1 type='checkbox' onChange={handlecheckbox3} style={{height:"20px",width:"20px"}}></Button1>
           <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Fridge</Supersub>
         </div>
-        <div style={{display:"Flex",minWidth:"23%" ,marginTop:"15px"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
-          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Stove</Supersub>
-        </div>
+        
         </div>
 
         <div>
         <div style={{display:"Flex",minWidth:"33%",margin:"15px 0 0 0"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Button1 type='checkbox' onChange={handlecheckbox4} style={{height:"20px",width:"20px"}}></Button1>
           <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Water Purifier</Supersub>
         </div>
         <div style={{display:"Flex",minWidth:"33%" ,marginTop:"15px"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
+          <Button1 type='checkbox' onChange={handlecheckbox5} style={{height:"20px",width:"20px"}}></Button1>
           <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Modular Kitchen</Supersub>
         </div>
-        
-        <div style={{display:"Flex",minWidth:"33%",margin:"15px 0 0 0"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
-          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Chimney </Supersub>
-        </div>
-        <div style={{display:"Flex",minWidth:"33%" ,marginTop:"15px"}}>
-          <Button1 type='checkbox' style={{height:"20px",width:"20px"}}></Button1>
-          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Exhaust Fan</Supersub>
+        <div style={{display:"Flex",minWidth:"23%" ,marginTop:"15px"}}>
+          <Button1 type='checkbox' onChange={handlecheckbox6} style={{height:"20px",width:"20px"}}></Button1>
+          <Supersub style={{fontSize:"18px",marginRight:"20px",padding:"0 10px",margin:"0"}}>Stove</Supersub>
         </div>
         </div>
         </Flex1>   
@@ -935,30 +1260,30 @@ useEffect(() => {
        </Flex>
        
         <div className='subheading'>Floor Details</div>
-        <Input1 type='text' placeholder='Total Floors'></Input1>
-        <Input1 type='text' placeholder='Property Floor'></Input1>
+        <Input1 type='text' onChange={(e)=>{setProfileData({...profileData,"totalFoor":e.target.value})}} placeholder='Total Floors'></Input1>
+        <Input1 type='text' onChange={(e)=>{setProfileData({...profileData,"propertyFoor":e.target.value})}} placeholder='Property Floor'></Input1>
 
         <div className='subheading'>Availability status</div>
         <Flex>
             <div className='od' onClick={handlespropertyage}>
-              <Div1 style={{width:"150px"}} className={ready} onClick={handleavailability}>Ready to move</Div1>
+              <Div1 style={{width:"150px"}} className={ready} data-value="Ready to move" onClick={(e)=>{handleavailability(e)}}>Ready to move</Div1>
             </div>
             <div className='od' onClick={handlepropertyage1}>
-            <Div1 style={{width:"150px"}} className={underconstruct} onClick={handleavailability1}>Under Construction</Div1>
+            <Div1 style={{width:"150px"}} className={underconstruct} data-value="Under Construction" onClick={(e)=>{handleavailability1(e)}}>Under Construction</Div1>
             </div>
         </Flex>
         <Div4 className={propertyage}>
           <div className='subheading'>Age of property</div>
           <Flex>
-            <Div1 className={age} onClick={handleage}>0-1 Years</Div1>
-            <Div1 className={age1} onClick={handleage1}>1-5 Years</Div1>
-            <Div1 className={age2} onClick={handleage2}>5-10 Years</Div1>
-            <Div1 className={age3} onClick={handleage3}>10+ Years</Div1>
+            <Div1 className={age} data-value="0-1 Years" onClick={(e)=>{handleage(e)}}>0-1 Years</Div1>
+            <Div1 className={age1} data-value="1-5 Years" onClick={(e)=>{handleage1(e)}}>1-5 Years</Div1>
+            <Div1 className={age2} data-value="5-10 Years" onClick={(e)=>{handleage2(e)}}>5-10 Years</Div1>
+            <Div1 className={age3} data-value="10+ Years" onClick={(e)=>{handleage3(e)}}>10+ Years</Div1>
             </Flex>
         </Div4>
         <Div4 className={propertyage1}>
           <div className='subheading'>Possesion By</div>
-          <Select1>
+          <Select1 onChange={(e)=>{setProfileData({...profileData,"possesionBy":e.target.value})}}>
             <Choice disabled selected hidden>Possesion By</Choice>
             <Choice>Within 3 Months</Choice>
             <Choice>Within 6 Months</Choice>
@@ -972,11 +1297,10 @@ useEffect(() => {
         
         </Div4>
         <div style={{margin:"70px 0 40px"}}>
-        <Button onClick={()=>{navigate("/addproperty/photos")}}>Continue</Button>
+        <Button onClick={()=>{navigate("/addproperty/photos",{state:{"PreviousValue":profileData}})}}>Continue</Button>
         </div>
         </Content>
     </Wrapper>
   )
 }
-
 export default Propertyprofile

@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import styled from 'styled-components'
 import Sidebar from './sidebar'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useDropzone } from 'react-dropzone';
 import { FcStackOfPhotos } from "react-icons/fc";
@@ -14,6 +14,21 @@ padding-bottom: 40px;
 
 @media (max-width: 768px) {
     margin: 50px 0 50px;    
+}
+`;
+
+const Input1=styled.input`
+width: 40%;
+height: 35px;
+font-size: 20px;
+font-weight: 200;
+margin-bottom: 20px;
+border: 1px solid #d9d9d9;
+padding: 0 10px;
+margin-right: 20px;
+
+@media (max-width: 768px) {
+    width: 80%;
 }
 `;
 
@@ -124,6 +139,13 @@ function Photos() {
   const { getRootProps, getInputProps } = useDropzone();
   const navigate = useNavigate();
 
+  const location = useLocation();
+  const {PreviousValue}=location.state;
+
+  const  [photoData,setPhotoData]=useState(PreviousValue);
+
+
+
   const onTop = () => {
     window.scrollTo(0, 0);
 }
@@ -139,9 +161,13 @@ useEffect(() => {
         <Content>
         <Back onClick={()=>{navigate("/addproperty/propertyprofile")}}> <FaArrowLeftLong style={{marginRight:"5px", fontSize:"15px"}}/> Back</Back>
         <div className='heading'>Add photos of your property</div>
-        <div className='subheading'>Upload form Desktop</div>
+        <div className='subheading'>Upload from Desktop</div>
         <DragDrop {...getRootProps()}>
+
+      <Input1 type='text' onChange={(e)=>{setPhotoData({...photoData,"noOfPhotos":e.target.value})}} placeholder='No. of Photos'></Input1>
       <Div> 
+       
+
         <div>
         <Logo style={{height:"40px",width:"40px"}}/>
           <Subheading>+Add Atleast 5 Photos</Subheading>
@@ -151,7 +177,7 @@ useEffect(() => {
       </Div>
         </DragDrop>
     <div style={{marginTop:"50px",marginBottom:"40px"}}>
-    <Button1 onClick={()=>{navigate("/addproperty/price")}}>Continue</Button1>
+    <Button1 onClick={()=>{navigate("/addproperty/price",{state:{"PreviousValue":photoData}})}}>Continue</Button1>
     </div>
        
         </Content>
