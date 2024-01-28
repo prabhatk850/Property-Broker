@@ -146,17 +146,17 @@ function Price() {
 
   const handleCheckbox = () => {
     setAllInclusivePrice(!allInclusivePrice);
-    setPriceData({...priceData,"allInclusivePrice":allInclusivePrice})
+    setPriceData({...priceData,allInclusivePrice})
   }
 
   const handleCheckbox1 = () => {
     setTaxAndGovtCharges(!taxAndGovtCharges);
-    setPriceData({...priceData,"taxAndGovtCharges":taxAndGovtCharges})
+    setPriceData({...priceData,taxAndGovtCharges})
   }
 
   const handleCheckbox2 = () => {
     setPriceNegotiable(!priceNegotiable);
-    setPriceData({...priceData,"priceNegotiable":priceNegotiable})
+    setPriceData({...priceData,priceNegotiable})
   }
 
 
@@ -252,7 +252,7 @@ useEffect(() => {
 
         <div className='subheading'> What makes your peoperty unique</div>
         <div className='subheading' style={{fontSize:"13px",margin:"0"}}>Add discription</div>
-        <textarea onChange={(e)=>{setPriceData({...priceData,"description":e.target.value})}} style={{width:"80%",height:"100px",border:"1px solid #d9d9d9",padding:"10px 10px",fontSize:"15px",borderRadius:"5px"}} placeholder="Share some details about your property like spacious rooms, well maintained facilities"></textarea> 
+        <textarea onChange={(e)=>{setPriceData({...priceData,"discription":e.target.value})}} style={{width:"80%",height:"100px",border:"1px solid #d9d9d9",padding:"10px 10px",fontSize:"15px",borderRadius:"5px"}} placeholder="Share some details about your property like spacious rooms, well maintained facilities"></textarea> 
         <div style={{marginTop:"50px",marginBottom:"40px"}}>
         <Button onClick={()=>{navigate("/addproperty/amenities",{state:{"PreviousData":priceData}})}}>Continue</Button>
         </div> 

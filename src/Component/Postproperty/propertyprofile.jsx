@@ -1260,8 +1260,8 @@ useEffect(() => {
        </Flex>
        
         <div className='subheading'>Floor Details</div>
-        <Input1 type='text' onChange={(e)=>{setProfileData({...profileData,"totalFoor":e.target.value})}} placeholder='Total Floors'></Input1>
-        <Input1 type='text' onChange={(e)=>{setProfileData({...profileData,"propertyFoor":e.target.value})}} placeholder='Property Floor'></Input1>
+        <Input1 type='text' onChange={(e)=>{setProfileData({...profileData,"totalFloor":e.target.value})}} placeholder='Total Floors'></Input1>
+        <Input1 type='text' onChange={(e)=>{setProfileData({...profileData,"propertyFloor":e.target.value})}} placeholder='Property Floor'></Input1>
 
         <div className='subheading'>Availability status</div>
         <Flex>
