@@ -197,12 +197,12 @@ function Homepage(props) {
   const handdleClick=(display)=>{
     setPurpose(display);
   };
-  const [value, setValue] = React.useState([0, 100]);
+  const [value, setValue] = useState([0, 100]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const [checked, setChecked] = React.useState(true);
+  const [checked, setChecked] = useState(true);
   const handleCheck = () => {
   setChecked(!checked)
   };
