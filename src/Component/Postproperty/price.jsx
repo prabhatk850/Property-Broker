@@ -83,6 +83,7 @@ font-weight: 200;
 margin-bottom: 20px;
 margin-right: 10px;
 border: 1px solid #d9d9d9;
+border-radius: 5px;
 padding: 0 10px;
 @media (max-width: 768px) {
     width: 80%;

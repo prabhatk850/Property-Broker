@@ -43,7 +43,7 @@ margin-right: 10px;
 display: flex;
 align-items: center;
 justify-content: center;
-padding: 5px 11px;
+padding: 5px 15px;
 border: 1px solid #d9d9d9;
 border-radius: 20px;
 
@@ -91,6 +91,8 @@ font-size:20px;
 padding: 0 10px;
 color: gray;
 border: 1px solid #d9d9d9;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
 border-bottom:none;
 border-top: none;
 border-right: none;
@@ -108,6 +110,7 @@ justify-content: space-between;
 width: 50%;
 margin-bottom: 10px;
 border: 1px solid #d9d9d9;
+border-radius: 5px;
 @media (max-width: 768px) {
     width: 60%;
 }
@@ -123,6 +126,7 @@ color: red;
 width: 15px;
 display: flex;
 justify-content: center;
+align-items: center;
 font-size: 15px;
 font-weight: 200;
 `;
@@ -138,11 +142,12 @@ font-weight: 200;
 
 const Input=styled.input`
 width: 40%;
-height: 35px;
+height: 30px;
 font-size: 20px;
 font-weight: 200;
 margin-bottom: 20px;
 border: 1px solid #d9d9d9;
+border-radius: 5px;
 padding: 0 10px;
 border: none;
 outline: none;
@@ -151,12 +156,13 @@ outline: none;
 }
 `;
 const Input1=styled.input`
-width: 40%;
+width: 20%;
 height: 35px;
 font-size: 20px;
 font-weight: 200;
 margin-bottom: 20px;
 border: 1px solid #d9d9d9;
+border-radius: 5px;
 padding: 0 10px;
 margin-right: 20px;
 
@@ -208,6 +214,8 @@ const Select1=styled.select`
 height:40px;
 font-size:18px;
 padding: 0 30px 0 10px;
+border: 1px solid #d9d9d9;
+border-radius: 5px;
 color: gray;
 outline: none;
 `;
@@ -1070,7 +1078,7 @@ useEffect(() => {
         <div style={{marginBottom:"20px"}} className='heading'>Tell us about your peoperty</div>
         <div className='subheading'>Add Room Details</div>
         <Supersub>No. of bedroom</Supersub>
-        <div className='flex'>
+        <div className='flex1'>
             <Div1 className={type} data-value={"1"} onClick={(e)=>{handleclick(e)}}>1</Div1>
             <Div1 className={type1} data-value={"2"} onClick={(e)=>{handleclick1(e)}}>2</Div1>
             <Div1 className={type2} data-value={"3"} onClick={(e)=>{handleclick2(e)}}>3</Div1>
@@ -1078,7 +1086,7 @@ useEffect(() => {
             <Div1 className={type4} data-value={"4+"} onClick={(e)=>{handleclick4(e)}}>4+</Div1>        
         </div>
         <Supersub>No. of bathroom</Supersub>
-        <div className='flex'>
+        <div className='flex1'>
             <Div1 className={pype} data-value={"1"} onClick={(e)=>{handlebath(e)}}>1</Div1>
             <Div1 className={pype1} data-value={"2"} onClick={(e)=>{handlebath1(e)}}>2</Div1>
             <Div1 className={pype2} data-value={"3"} onClick={(e)=>{handlebath2(e)}}>3</Div1>
@@ -1086,7 +1094,7 @@ useEffect(() => {
             <Div1 className={pype4} data-value={"4+"} onClick={(e)=>{handlebath4(e)}}>4+</Div1>
         </div>
         <Supersub>No. of balconies</Supersub>
-        <div className='flex'>
+        <div className='flex1'>
             <Div1 className={hype} data-value={"1"} onClick={(e)=>{handlebalcony(e)}}>1</Div1>
             <Div1 className={hype1} data-value={"2"} onClick={(e)=>{handlebalcony1(e)}}>2</Div1>
             <Div1 className={hype2} data-value={"3"} onClick={(e)=>{handlebalcony2(e)}}>3</Div1>

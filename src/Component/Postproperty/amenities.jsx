@@ -1487,8 +1487,8 @@ function Amenities() {
           </div>
         </Flex>
 
-        <div className="subheading">Flooring type</div>
-        <Select
+        <div className="subheading" >Flooring type</div>
+        <Select style={{borderRadius:"5px"}}
           onChange={(e) => {
             setFinalData({ ...finalData, flooring: e.target.value });
           }}

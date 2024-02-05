@@ -107,30 +107,35 @@ console.log("format",formatValue(value2));
 const [checked3, setChecked3] = useState(false);
 const handleChange3 = (event) => {
     setChecked3(!checked3);
+    setSelectedFilter([...selectedFilter,"Flat/Appartment"]);
 };
 const buttonClass3 = checked3 ? 'bt' : 'bf';
 
 const [checked4, setChecked4] = useState(false);
 const handleChange4 = (event) => {
     setChecked4(!checked4);
+    setSelectedFilter([...selectedFilter,"Indepedent Floor"]);
 }
 const buttonClass4 = checked4 ? 'bt' : 'bf';
 
 const [checked5, setChecked5] = useState(false);
 const handleChange5 = (event) => {
     setChecked5(!checked5);
+    setSelectedFilter([...selectedFilter,"Independent House"]);
 }
 const buttonClass5 = checked5 ? 'bt' : 'bf';
 
 const [checked6, setChecked6] = useState(false);
 const handleChange6 = (event) => {
     setChecked6(!checked6);
+    setSelectedFilter([...selectedFilter,"Farm House"]);
 }
 const buttonClass6 = checked6 ? 'bt' : 'bf';
 
 const [checked7, setChecked7] = useState(false);
 const handleChange7 = (event) => {
     setChecked7(!checked7);
+    setSelectedFilter([...selectedFilter,"Other"]);
 }
 const buttonClass7 = checked7 ? 'bt' : 'bf';
 
@@ -138,6 +143,7 @@ const buttonClass7 = checked7 ? 'bt' : 'bf';
 const [checked8, setChecked8] = useState(false);
 const handleChange8 = (event) => {
     setChecked8(!checked8);
+    setSelectedFilter([...selectedFilter,"1 BHk/1 RK"]);
 }
 const buttonClass8 = checked8 ? 'bt' : 'bf';
 
@@ -145,24 +151,28 @@ const [checked9, setChecked9] = useState(false);
 
 const handleChange9 = (event) => {
     setChecked9(!checked9);
+    setSelectedFilter([...selectedFilter,"2BHK"]);
 }
 const buttonClass9 = checked9 ? 'bt' : 'bf';
 
 const [checked10, setChecked10] = useState(false);
 const handleChange10 = (event) => {
     setChecked10(!checked10);
+    setSelectedFilter([...selectedFilter,"3BHK"]);
 }
 const buttonClass10 = checked10 ? 'bt' : 'bf';
 
 const [checked11, setChecked11] = useState(false);
 const handleChange11 = (event) => {
     setChecked11(!checked11);
+    setSelectedFilter([...selectedFilter,"4BHK"]);
 }
 const buttonClass11 = checked11 ? 'bt' : 'bf';
 
 const [checked12, setChecked12] = useState(false);
 const handleChange12 = (event) => {
     setChecked12(!checked12);
+    setSelectedFilter([...selectedFilter,"4+BHK"]);
 }
 const buttonClass12 = checked12 ? 'bt' : 'bf';
 
@@ -170,6 +180,7 @@ const buttonClass12 = checked12 ? 'bt' : 'bf';
 const [checked13, setChecked13] = useState(false);
 const handleChange13 = (event) => {
     setChecked13(!checked13);
+    setSelectedFilter([...selectedFilter,"New Launch"]);
 }
 const buttonClass13 = checked13 ? 'bt' : 'bf';
 
@@ -177,6 +188,7 @@ const buttonClass13 = checked13 ? 'bt' : 'bf';
 const [checked14, setChecked14] = useState(false);
 const handleChange14 = (event) => {
     setChecked14(!checked14);
+    setSelectedFilter([...selectedFilter,"Under Construction"]);
 }
 const buttonClass14 = checked14 ? 'bt' : 'bf';
 
@@ -184,6 +196,7 @@ const buttonClass14 = checked14 ? 'bt' : 'bf';
 const [checked15, setChecked15] = useState(false);
 const handleChange15 = (event) => {
     setChecked15(!checked15);
+    setSelectedFilter([...selectedFilter,"Ready to move"]);
 }
 const buttonClass15 = checked15 ? 'bt' : 'bf';
 
@@ -192,6 +205,7 @@ const [checked16, setChecked16] = useState(false);
 
 const handleChange16 = (event) => {
     setChecked16(!checked16);
+    setSelectedFilter([...selectedFilter,"Owner"]);
 }
 const buttonClass16 = checked16 ? 'bt' : 'bf';
 
@@ -199,6 +213,7 @@ const buttonClass16 = checked16 ? 'bt' : 'bf';
 const [checked17, setChecked17] = useState(false);
 const handleChange17 = (event) => {
     setChecked17(!checked17);
+    setSelectedFilter([...selectedFilter,"Builder"]);
 }
 const buttonClass17 = checked17 ? 'bt' : 'bf';
 
@@ -206,6 +221,7 @@ const buttonClass17 = checked17 ? 'bt' : 'bf';
 const [checked18, setChecked18] = useState(false);
 const handleChange18 = (event) => {
     setChecked18(!checked18);
+    setSelectedFilter([...selectedFilter,"Dealer"]);
 }
 const buttonClass18 = checked18 ? 'bt' : 'bf';
 
@@ -213,6 +229,7 @@ const buttonClass18 = checked18 ? 'bt' : 'bf';
 const [checked19, setChecked19] = useState(false);
 const handleChange19 = (event) => {
     setChecked19(!checked19);
+    setSelectedFilter([...selectedFilter,"Featured Dealer"]);
 }
 const buttonClass19 = checked19 ? 'bt' : 'bf';
 
@@ -226,12 +243,14 @@ const handleSlider2 = (event, newValue) => {
 const [checked20, setChecked20] = useState(false);
 const handleChange20 = (event) => {
     setChecked20(!checked20);
+    setSelectedFilter([...selectedFilter,"Parking"]);
 }
 const buttonClass20 = checked20 ? 'bt' : 'bf';
 
 const [checked21, setChecked21] = useState(false);
 const handleChange21 = (event) => {
     setChecked21(!checked21);
+    setSelectedFilter([...selectedFilter,"Park"]);
 }
 const buttonClass21 = checked21 ? 'bt' : 'bf';
 
@@ -239,36 +258,42 @@ const [checked22, setChecked22] = useState(false);
 
 const handleChange22 = (event) => { 
     setChecked22(!checked22);
+    setSelectedFilter([...selectedFilter,"Gas Piped Line"]);
 }
 const buttonClass22 = checked22 ? 'bt' : 'bf';
 
 const [checked23, setChecked23] = useState(false);
 const handleChange23 = (event) => {
     setChecked23(!checked23);
+    setSelectedFilter([...selectedFilter,"Power Backup"]);
 }
 const buttonClass23 = checked23 ? 'bt' : 'bf';
 
 const [checked24, setChecked24] = useState(false);
 const handleChange24 = (event) => {
     setChecked24(!checked24);
+    setSelectedFilter([...selectedFilter,"Lift"]);
 }
 const buttonClass24 = checked24 ? 'bt' : 'bf';
 
 const [checked25, setChecked25] = useState(false);
 const handleChange25 = (event) => {
     setChecked25(!checked25);
+    setSelectedFilter([...selectedFilter,"Gym"]);
 }
 const buttonClass25 = checked25 ? 'bt' : 'bf';
 
 const [checked26, setChecked26] = useState(false);
 const handleChange26 = (event) => {
     setChecked26(!checked26);
+    setSelectedFilter([...selectedFilter,"Swimming Pool"]);
 }
 const buttonClass26 = checked26 ? 'bt' : 'bf';
 
 const [checked27, setChecked27] = useState(false);
 const handleChange27 = (event) => {
     setChecked27(!checked27);
+    setSelectedFilter([...selectedFilter,"Club Room"]);
 }
 const buttonClass27 = checked27 ? 'bt' : 'bf';
 
@@ -276,24 +301,32 @@ const buttonClass27 = checked27 ? 'bt' : 'bf';
 const [checked28, setChecked28] = useState(false);
 const handleChange28 = (event) => {
     setChecked28(!checked28);
+    setSelectedFilter([...selectedFilter,"Furnished"]);
 }
 const buttonClass28 = checked28 ? 'bt' : 'bf';
 
 const [checked29, setChecked29] = useState(false);
 const handleChange29 = (event) => {
     setChecked29(!checked29);
+    setSelectedFilter([...selectedFilter,"Semi-Furnished"]);
 }
 const buttonClass29 = checked29 ? 'bt' : 'bf';
 
 const [checked30, setChecked30] = useState(false);
 const handleChange30 = (event) => {
     setChecked30(!checked30);
+    setSelectedFilter([...selectedFilter,"Un-Furnished"]);
 }
 const buttonClass30 = checked30 ? 'bt' : 'bf';
 
+const [selectedFilter,setSelectedFilter]=useState([]);
 
 
-
+const removeItem = (e) => {
+        const itemtoremove = e.target.getAttribute('data-value');
+        console.log("first",itemtoremove);
+        setSelectedFilter(selectedFilter.filter(item => item !== itemtoremove));
+}
 
 
 
@@ -303,7 +336,9 @@ const buttonClass30 = checked30 ? 'bt' : 'bf';
         <Heading>Applied Filter</Heading>
         <Clear>Clear All</Clear>
         </div>
-        <Div>Indrapuram ❌</Div>
+        {selectedFilter.map((item) => (
+        <Div key={item.id}>{item} <div data-value={item} onClick={(e)=>removeItem(e)}>❌</div></Div>
+        ))}
 
         <div className='sb height' > 
         <Heading>Property with Photos</Heading>

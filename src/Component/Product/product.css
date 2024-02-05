@@ -13,6 +13,9 @@
 .bf{
     background-color :rgb(243, 239, 239);
 }
+.dn{
+    display: none;
+}
 .seperetor{
     height: 2px;
     width: 100%;
@@ -20,5 +23,40 @@
 }
 .flex{
     flex-wrap: wrap;
+    display: flex;
+    
+}
+.flx{
+    display: flex;
     justify-content: space-between;
+}
+.flx1{
+    display: flex;
+    justify-content: space-between;
+}
+.m{
+    margin-top: 20px;
+}
+.seperator{
+    height: 40px;
+    width: 1px;
+    background-color: gray;
+}
+.noexpend{
+    position: relative;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+height: 60.5px;
+-webkit-box-orient: vertical;
+}
+.expend{
+    
+   z-index: 1;
+    
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    height: 135px;
+    background-color: white;
 }
