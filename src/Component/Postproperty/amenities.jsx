@@ -142,9 +142,11 @@ const Choice = styled.option`
 
 function Amenities() {
   const location = useLocation();
-  const { PreviousData } = location.state;
+  // const { PreviousData } = location.state;
+  const PreviousValue = location?.state?.PreviousValue;
 
-  const [finalData, setFinalData] = useState(PreviousData);
+
+  const [finalData, setFinalData] = useState(PreviousValue);
 
   const [checked, setChecked] = useState(false);
   const [color, setColor] = useState("gray");
@@ -935,7 +937,7 @@ function Amenities() {
       <Content>
         <Back
           onClick={() => {
-            navigate("/addproperty/propertyprofile");
+            navigate("/addproperty/price");
           }}
         >
           {" "}
