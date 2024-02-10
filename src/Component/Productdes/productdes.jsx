@@ -101,26 +101,24 @@ function Productdes() {
       discription:'rexytcyvubinmopkpjiuytruyrsxdtucfyvtubihjo',
       pic: 'https://www.w3schools.com/w3images/jeans3.jpg',
       area: 1500,
-      "amenities": ["Park", "Piped gas"],
-  "propertyFeatures": ["Recently Renovate", "Private garden", "False seeling Light"],
-  "societyFeatures": ["Gym", "Swimming Pool"],
-  "otherFeatures": ["Low Density property", "Seperate Entry for servent"],
-  
-  "overlooking": ["Garden", "pool"],
-  "otherPropertyFeatures": [
-    { "Pet Friendly": true },
-    { "corner Property": true }
-  ],
-  
-  "locationAdvantages": "Near Metro",
-  "furnishType": [
-    { "Light": "2" },
-    { "Tv": "5" },
-    { "Fan": "3" },
-      { "Wardrobe": "2" },
-      { "Bed": "2" },
-  ],
-
+      amenities: ["Park", "Piped gas"],
+      propertyFeatures: ["Recently Renovate", "Private garden", "False seeling Light"],
+      societyFeatures: ["Gym", "Swimming Pool"],
+      otherFeatures: ["Low Density property", "Seperate Entry for servent"],
+      overlooking: ["Garden", "pool"],
+      otherPropertyFeatures: [
+        { "Pet Friendly": true },
+        { "corner Property": true }
+      ],
+      locationAdvantages: "Near Metro",
+      furnishType: [
+        { "Light": "2" },
+        { "Tv": "5" },
+        { "Fan": "3" },
+        { "Wardrobe": "2" },
+        { "Bed": "2" },
+      ],
+      postedBy: "Owner",
     }
 
   ];
@@ -191,7 +189,7 @@ function FurnishTypeList({ data }) {
 
           <div className='dg'>
             <Button>
-              contact Owner
+              contact {e.postedBy}
             </Button>
             <Button style={{backgroundColor:"white",color:"red",display:"flex",alignItems:"center"}}>
             <CiHeart style={{height:"20px",width:"20px",marginRight:"5px"}} /> Short List
@@ -200,7 +198,7 @@ function FurnishTypeList({ data }) {
         </div>
         <div style={{marginTop:"50px"}} className='df'>
           <Heading>Overview</Heading>
-          <Heading>Owner Details</Heading>
+          <Heading>{e.postedBy} Details</Heading>
           <Heading>Recomendstion</Heading>
         </div>
           <div className='seperetor m'></div>
@@ -269,11 +267,13 @@ function FurnishTypeList({ data }) {
         <Description>{e.discription}</Description>
         <div style={{marginTop:"30px"}} className='seperetor b'></div> 
         <Heading1 className='b'>{e.furnishing}</Heading1>
-        <div style={{display:"flex",flexWrap:"wrap"}}>{e.furnishType && <FurnishTypeList data={e} />}</div>
-          <div style={{marginTop:"30px"}} className='seperetor b'></div> 
-
+        <div>{e.furnishType && <FurnishTypeList data={e} />}</div>
+          <div style={{marginTop:"30px"}} className='seperetor b'></div>
           <OwnerDeatils>
-
+            <Heading className='b'>{e.postedBy} Details</Heading>
+            <div>
+              <img style={{height:"200px",width:"200px"}} src='' alt='Profile Picture'></img>
+            </div>
           </OwnerDeatils>
           <div style={{marginTop:"30px"}} className='seperetor b'></div> 
 
