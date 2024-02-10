@@ -1,0 +1,32 @@
+.Vsep{
+    height: 20px;
+    width: 2px;
+    color: gray;
+    margin: 0 10px;
+    background-color: rgb(238, 237, 237);
+}
+.df{
+    display: flex;
+}
+.jc{
+    justify-content: space-between;
+}
+.m{
+    margin-top: 5px;
+}
+.dg{
+    display: grid;
+}
+.b{
+    margin-bottom: 20px;
+}
+.mr{
+    width: 25%;
+}
+.ft{
+    margin-top: 20px;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    display: flex;
+}
+

@@ -61,7 +61,6 @@ width: 300px;
 margin-right: 30px;
 padding-bottom: 10px;
 border-radius: 10px;
-
 `;
 const Heading = styled.div`
 display: flex;

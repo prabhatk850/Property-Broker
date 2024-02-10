@@ -1106,7 +1106,7 @@ useEffect(() => {
        
         <Div>
         <Input placeholder='Carpet Area' onChange={(e)=>{setCarpetArea(e.target.value)}}></Input>
-        <Select onChange={(e)=>{setProfileData({...profileData,"area":[{[carpetArea]:e.target.value}]})}}>
+        <Select onChange={(e)=>{setProfileData({...profileData,"area":[{"carpetArea":{[carpetArea]:e.target.value}}]})}}>
             <Choice value={"Sq.ft"} selected>Sq.ft</Choice>
             <Choice value={"Sq.yard"}>Sq.yard</Choice>
             <Choice value={"Sq.m"}>Sq.m</Choice>
@@ -1123,7 +1123,7 @@ useEffect(() => {
         <div className={style}>
         <Div>
         <Input onChange={(e)=>{setBuiltupArea(e.target.value)}}  placeholder='Built-up Area'></Input>
-        <Select onChange={(e)=>{setProfileData({...profileData,"area":[...profileData.area,{[builtupArea]:e.target.value}]})}}>
+        <Select onChange={(e)=>{setProfileData({...profileData,"area":[{"builtupArea":{[builtupArea]:e.target.value}}]})}}>
             <Choice value={"Sq.ft"} selected>Sq.ft</Choice>
             <Choice value={"Sq.yard"}>Sq.yard</Choice>
             <Choice value={"Sq.m"}>Sq.m</Choice>
@@ -1135,7 +1135,7 @@ useEffect(() => {
         <div className={style1}>
         <Div>
         <Input  onChange={(e)=>{setSuperBuiltupArea(e.target.value)}} placeholder='Super Built-up Area'></Input>
-        <Select onChange={(e)=>{setProfileData({...profileData,"area":[...profileData.area,{[superBuiltupArea]:e.target.value}]})}}>
+        <Select onChange={(e)=>{setProfileData({...profileData,"area":[{"superBuiltupArea":{[superBuiltupArea]:e.target.value}}]})}}>
             <Choice value={"Sq.ft"} selected>Sq.ft</Choice>
             <Choice value={"Sq.yard"}>Sq.yard</Choice>
             <Choice value={"Sq.m"}>Sq.m</Choice>

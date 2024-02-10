@@ -864,7 +864,7 @@ function Amenities() {
     setChecked35(!checked35);
     setFinalData((prevFinalData) => ({
       ...prevFinalData,
-      otherPropertyFeatures: Array.isArray(prevFinalData.otherPropertyFeatures)
+      otherPropertyFeatures: prevFinalData && Array.isArray(prevFinalData.otherPropertyFeatures)
         ? [...prevFinalData.otherPropertyFeatures, { gatedSociety: checked35 }]
         : [{ gatedSociety: checked35 }],
     }));
@@ -875,7 +875,7 @@ function Amenities() {
     setChecked36(!checked36);
     setFinalData((prevFinalData) => ({
       ...prevFinalData,
-      otherPropertyFeatures: Array.isArray(prevFinalData.otherPropertyFeatures)
+      otherPropertyFeatures: prevFinalData && Array.isArray(prevFinalData.otherPropertyFeatures)
         ? [
             ...prevFinalData.otherPropertyFeatures,
             { cornerProperty: checked36 },
@@ -889,7 +889,7 @@ function Amenities() {
     setChecked37(!checked37);
     setFinalData((prevFinalData) => ({
       ...prevFinalData,
-      otherPropertyFeatures: Array.isArray(prevFinalData.otherPropertyFeatures)
+      otherPropertyFeatures: prevFinalData && Array.isArray(prevFinalData.otherPropertyFeatures)
         ? [...prevFinalData.otherPropertyFeatures, { petFriendly: checked37 }]
         : [{ petFriendly: checked37 }],
     }));
@@ -898,10 +898,9 @@ function Amenities() {
   const [checked38, setChecked38] = useState(false);
   const handlecheckbox3 = () => {
     setChecked38(!checked38);
-
     setFinalData((prevFinalData) => ({
       ...prevFinalData,
-      otherPropertyFeatures: Array.isArray(prevFinalData.otherPropertyFeatures)
+      otherPropertyFeatures: prevFinalData && Array.isArray(prevFinalData.otherPropertyFeatures)
         ? [
             ...prevFinalData.otherPropertyFeatures,
             { wheelChairFriendly: checked38 },
