@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.div`
-margin: 0 10px;
+margin: 0 5px;
 `;
 
 const Text1 = styled.div`

@@ -54,7 +54,6 @@ height: 60.5px;
 .expend{
     
    z-index: 1;
-    
     overflow-y: scroll;
     text-overflow: ellipsis;
     height: 135px;

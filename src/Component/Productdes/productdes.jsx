@@ -1,13 +1,22 @@
-import React from 'react'
+import React , {useState} from 'react'
 import './pd.css'
 import styled from 'styled-components'
 import { CiHeart } from "react-icons/ci";
+import Property from '../Home/property';
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper =styled.div`
 margin: 50px;
 `;
 
 const Div = styled.div``;
+
+const Div1 = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px 0 0 0;
+`;
 
 const Bold = styled.div`
 font-size: 35px;
@@ -27,6 +36,15 @@ font-size: 18px;
 background-color: red;
 color: white;
 `;
+const Button1=styled.button`
+padding: 5px 10px;
+margin: 5px 10px;
+border : 1px solid red;
+border-radius: 5px;
+font-size: 18px;
+background-color: gray;
+color: white;
+`;
 
 const Heading=styled.div`
 margin-right: 50px;
@@ -34,6 +52,31 @@ font-size: 20px;
 color: gray;
 font-weight: 400;
 `;
+
+const Select=styled.select`
+height: 42px;
+outline : none;
+width: 80px;
+border: 1px solid lightgray;
+background-color: #cee0f0;
+border-right-color: #dcc2c291;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+`;
+
+const Div4=styled.div`
+width: 260px;
+display: flex;
+height: 40px;
+`;
+
+const MinHeading=styled.div`
+font-size: 20px;
+font-weight: 500;
+color: gray;
+margin-left: 10px;
+`;
+
 const Heading1=styled.div`
 margin-right: 50px;
 font-size: 20px;
@@ -66,8 +109,41 @@ color: gray;
 
 const OwnerDeatils=styled.div`
 background-color: aliceblue;
-height: 200px;
-width: 100%;
+margin: 0px -50px;
+padding: 30px 50px;
+width:fixed;
+color: #aba4a4;
+display: flex;
+
+`;
+
+const Input=styled.input`
+width: 250px;
+height: 40px;
+border-radius: 5px;
+outline: none;
+background-color: #cee0f0;
+border: 1px solid lightgray;
+padding: 0 5px;
+`;
+const Input1=styled.input`
+width:100%;
+height: 40px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+outline: none;
+background-color: #cee0f0;
+border: 1px solid lightgray;
+padding: 0 5px;
+`;
+const Input2=styled.input`
+width:250px;
+height: 150px;
+border-radius: 5px;
+outline: none;
+border: 1px solid lightgray;
+background-color: aliceblue;
+padding: 5px;
 `;
 
 
@@ -98,7 +174,7 @@ function Productdes() {
       furnishing: 'Semi-Furnished',
       closedParking: '1',
       waterSource: 'Borewell/Tank',
-      discription:'rexytcyvubinmopkpjiuytruyrsxdtucfyvtubihjo',
+      discription:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta eget mauris at facilisis. Ut arcu nisi, vestibulum non turpis id, suscipit ornare leo. Etiam elementum leo eros, vitae lacinia nibh ornare quis. Duis vel varius ante, vel cursus arcu. Aliquam sodales cursus ipsum ut sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi auctor, leo at consequat convallis, ante augue congue arcu, finibus finibus nunc lacus eu risus. Vestibulum dapibus eros commodo ante consectetur, eu aliquam felis sollicitudin. Donec facilisis massa mi, nec aliquet urna condimentum eu. Proin id nulla nec neque aliquet congue non id nunc. Integer eu purus fermentum, condimentum felis eu, sagittis elit. Sed hendrerit sapien nec metus commodo ornare vitae fermentum libero. Morbi convallis odio sed risus iaculis scelerisque. Etiam pellentesque facilisis odio, at pharetra tortor pharetra vitae. Quisque elementum placerat metus non dictum. Vivamus quis mauris eget elit lobortis porttitor at et velit. Nulla pellentesque nulla eu cursus blandit. Integer ut efficitur odio. Quisque in justo efficitur mauris laoreet iaculis vitae ac tortor. Curabitur venenatis nibh sed turpis lobortis facilisis. Nam volutpat varius nisi non pretium. Suspendisse in dui ornare, maximus purus vel, sollicitudin velit. Pellentesque sed urna finibus, consectetur urna quis, consequat elit. Nullam et dui lobortis, pretium augue id, feugiat ligula. Aenean non urna ex. Nam tristique justo odio, ac interdum massa pulvinar sed. Phasellus in ipsum at odio elementum mattis. Vestibulum sed turpis et erat ullamcorper porta sit amet vitae leo. Nullam consectetur in lectus sed suscipit. Pellentesque fermentum ac quam a fermentum. Mauris blandit tincidunt nibh condimentum porttitor. Nunc dui arcu, elementum a orci et, venenatis vestibulum augue. Praesent placerat risus sit amet dolor pulvinar ullamcorper.  Pellentesque nunc orci, condimentum ac consequat sit amet, posuere ac velit. Nulla molestie diam et tellus porta aliquet. Proin gravida porttitor mi, nec auctor nibh ultricies ut. Maecenas non finibus purus. Pellentesque quis viverra mi. Morbi at scelerisque risus. Sed sit amet velit hendrerit, convallis metus id, facilisis sapien. Curabitur id neque sed enim commodo hendrerit at sed metus. Vivamus ligula est, eleifend nec placerat at, posuere et dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque rutrum arcu faucibus laoreet.Morbi augue tellus, posuere quis ex ac, porta rutrum arcu. Phasellus nec pulvinar sapien, sit amet accumsan erat. Donec a velit eget libero laoreet sodales quis eget nisl. Pellentesque vehicula dolor sapien, in pulvinar metus porttitor nec. Cras hendrerit, lorem at lobortis porta, erat diam semper lacus, vitae sagittis libero lacus non nibh. Sed blandit finibus purus, sed elementum neque pretium finibus. Nullam malesuada arcu at ligula rhoncus ullamcorper. Sed est magna, luctus eu nisi ac, condimentum vestibulum turpis. Pellentesque a consectetur libero. Aliquam erat volutpat. Curabitur maximus nibh id nisi egestas eleifend. Nam tempus metus quis augue efficitur, quis lobortis erat tempus. Phasellus sodales eleifend accumsan.',
       pic: 'https://www.w3schools.com/w3images/jeans3.jpg',
       area: 1500,
       amenities: ["Park", "Piped gas"],
@@ -119,7 +195,9 @@ function Productdes() {
         { "Bed": "2" },
       ],
       postedBy: "Owner",
-    }
+      profilePicture: "https://www.w3schools.com/w3images/jeans3.jpg",
+      firstName: "Rajesh",
+    },
 
   ];
 const handlegovtcharges=(e)=>{
@@ -163,6 +241,39 @@ function FurnishTypeList({ data }) {
   );
 }
 
+const [buyer, setBuyer] = useState(true);
+const [buyReason, setBuyReason] = useState(true);
+
+const handleBuyer = () => {
+  if (buyReason) {
+    const data='Investment';
+    return data;
+  } else {
+    const data='Self-Use';
+    return data;
+  }
+};
+
+const handleEnquiry = () => {
+  if (buyer) {
+    const data='Individual';
+    return data;
+  } else {
+   const data='Dealer'; 
+    return data;
+  }
+};
+
+const [show, setShow] = useState(true);
+  const handleShow = (id, e) => {
+    e.stopPropagation();
+    setShow(!show)
+    // setShow(prevShow => ({ ...prevShow, [id]: !prevShow[id] }));
+  };
+  const expend = show ? "More" : "Less";
+
+
+ const navigate=useNavigate();
 
 
   return (
@@ -259,24 +370,90 @@ function FurnishTypeList({ data }) {
           <div className='df mr b'><div>Property Ownership: &nbsp;</div><Bold1>{e.ownerShip}</Bold1></div>
           <div className='df mr b'><div>Flooring: &nbsp;</div><Bold1>{e.flooring}</Bold1></div>
           <div className='df mr b'><div>Furnishing: &nbsp;</div><Bold1>{e.furnishing}</Bold1></div>
-          <div className='df mr b'><div>Parking: &nbsp;</div><Bold1>{e.closedParking}&nbsp; Covered</Bold1></div>
+          <div className='df mr b'><div>Parking: &nbsp;</div><Bold1>{e.closedParking}&nbsp≥; Covered</Bold1></div>
           <div className='df mr b'><div>Water Source: &nbsp;</div><Bold1>{e.waterSource}</Bold1></div>
         </div>
         <div className='seperetor b'></div>
         <Heading1 className='b'>Property Description</Heading1>
-        <Description>{e.discription}</Description>
+        <Description className={expend}>{e.discription}</Description>
+        <div style={{fontWeight:"500",marginTop:"10px",fontSize:"15px"}} onClick={(e)=>handleShow(e.id,e)}> View {expend}</div>
         <div style={{marginTop:"30px"}} className='seperetor b'></div> 
         <Heading1 className='b'>{e.furnishing}</Heading1>
         <div>{e.furnishType && <FurnishTypeList data={e} />}</div>
           <div style={{marginTop:"30px"}} className='seperetor b'></div>
           <OwnerDeatils>
+            <div style={{width:"50%"}}>
             <Heading className='b'>{e.postedBy} Details</Heading>
-            <div>
-              <img style={{height:"200px",width:"200px"}} src='' alt='Profile Picture'></img>
+            <div className='df'>
+              <img style={{height:"200px",width:"170px",borderRadius:"10px",marginRight:"30px"}} src={e.profilePicture} alt='Profile Picture'></img>
+              <div style={{height:"150px"}} className='df fd jc'>
+                <div>
+                <MinHeading>{e.firstName}</MinHeading>
+                <div style={{marginLeft:"10px"}}>{e.postedBy}</div>
+                </div>
+                <Button1>View Phone No.</Button1>
+              </div>
+            </div>
+            <div style={{marginTop:"10px"}} className='df'>
+            <MinHeading>Localities: </MinHeading>
+            <div style={{lineHeight:"27px",marginLeft:"10px"}} >{e.locality}</div>
+            </div>
+            </div>
+    {/* flex */}
+            <div style={{width:"40%"}}>
+              <Heading className='b'>Send enquiry to {e.postedBy}</Heading>
+              <div className='df width20 b'>
+                <div className='jc1'>You are :</div>
+                <div className='df w'>
+                  <input type='radio' name='buyer' onClick={handleEnquiry} value='true' onChange={(e)=>{setBuyer(e.target.value)}}></input>
+                  <div style={{marginLeft:"5px"}}>Individual</div>
+                </div>
+                <div className='df w'>
+                  <input type='radio' onClick={handleEnquiry} name='buyer' value='false' onChange={(e)=>{setBuyer(e.target.value)}}></input>
+                  <div style={{marginLeft:"5px"}}> Dealer</div>
+                </div>
+              </div>
+
+              <div className='df width20 b'>
+                <div className='jc1'>Your Reason to buy is :</div>
+                <div className='df w'>
+                  <input  type='radio' name='buyer' onClick={handleBuyer} value='true' onChange={(e)=>{setBuyReason(e.target.value)}}></input>
+                  <div style={{marginLeft:"5px"}}>Investment</div>
+                </div>
+                <div className='df w'>
+                  <input type='radio' name='buyer' value='false' onChange={(e)=>{setBuyReason(e.target.value)}}></input>
+                  <div style={{marginLeft:"5px"}}> Self Use</div>
+                </div>
+              </div>
+            
+            <div className='df'>
+              <div className='b' style={{display:"block"}}>
+                <Input className='b' type='text' placeholder='Enter your Name' ></Input>
+                <Input className='b' type='text' placeholder='Enter Email'></Input>
+                <Div4 className='b'>
+                  <Select>
+                    <option value=''>Select</option>
+                    <option value='India'>India</option>
+                    <option value='USA'>USA</option>
+                    <option value='UK'>UK</option>
+                  </Select>
+                  <Input1 type='text' placeholder='Enter Phone No.'></Input1>
+                </Div4>
+              </div>
+              <div>
+                <div>
+                  <Input2 type='text' placeholder='Enter your Message'></Input2>
+                </div>
+              </div>
+            </div>
+            <Button>Send Enquiry</Button>
             </div>
           </OwnerDeatils>
           <div style={{marginTop:"30px"}} className='seperetor b'></div> 
-
+          <Heading>Recommended Properties</Heading>
+      <Div1 onClick={() => { navigate("/product-description") }}>
+        <Property/> 
+      </Div1>
 
         </Div>
 ))}

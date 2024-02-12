@@ -11,6 +11,9 @@
 .jc{
     justify-content: space-between;
 }
+.jc1{
+    width: 200px;
+}
 .m{
     margin-top: 5px;
 }
@@ -29,4 +32,29 @@
     flex-wrap: wrap;
     display: flex;
 }
-
+.fd{
+    flex-direction: column;
+}
+.width20{
+    width: 70%;
+}
+.w{
+    width: 120px;
+}
+.More{
+    position: relative;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+height: 60px;
+-webkit-box-orient: vertical;
+}
+.Less{
+    
+   z-index: 1;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    height: max-content;
+    background-color: white;
+}
