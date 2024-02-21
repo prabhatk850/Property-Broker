@@ -139,7 +139,7 @@ function Price() {
   const location = useLocation();
 
   // const {PreviousValue} = location.state;
-  const PreviousValue = location?.state?.PreviousValue;
+  const PreviousValue = location.state.PreviousValue;
 
   const [priceData, setPriceData] = useState(PreviousValue);
   const [allInclusivePrice, setAllInclusivePrice] = useState(false);

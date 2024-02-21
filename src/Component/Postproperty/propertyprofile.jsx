@@ -268,7 +268,7 @@ function Propertyprofile() {
 const navigate = useNavigate();
 const location = useLocation();
 // const {PreviousValue}=location?.state; 
-const PreviousValue = location?.state?.PreviousValue;
+const PreviousValue = location.state.PreviousValue;
 
 const [profileData,setProfileData]=useState(PreviousValue)
 
@@ -1106,7 +1106,7 @@ useEffect(() => {
        
         <Div>
         <Input placeholder='Carpet Area' onChange={(e)=>{setCarpetArea(e.target.value)}}></Input>
-        <Select onChange={(e)=>{setProfileData({...profileData,"area":[{"carpetArea":{[carpetArea]:e.target.value}}]})}}>
+        <Select onChange={(e)=>{setProfileData({...profileData,"area":{type:[{"carpetArea":{[carpetArea]:e.target.value}}]}})}}>
             <Choice value={"Sq.ft"} selected>Sq.ft</Choice>
             <Choice value={"Sq.yard"}>Sq.yard</Choice>
             <Choice value={"Sq.m"}>Sq.m</Choice>

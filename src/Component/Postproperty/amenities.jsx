@@ -142,11 +142,11 @@ const Choice = styled.option`
 
 function Amenities() {
   const location = useLocation();
-  // const { PreviousData } = location.state;
-  const PreviousValue = location?.state?.PreviousValue;
+  const { PreviousData } = location.state;
+  // const PreviousValue = location.state.PreviousValue;
 
 
-  const [finalData, setFinalData] = useState(PreviousValue);
+  const [finalData, setFinalData] = useState(PreviousData);
 
   const [checked, setChecked] = useState(false);
   const [color, setColor] = useState("gray");

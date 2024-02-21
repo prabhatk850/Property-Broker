@@ -8,11 +8,16 @@
 .df{
     display: flex;
 }
+.ml{
+    margin-left: 5px;
+    margin-right: 20px;
+}
 .jc{
     justify-content: space-between;
 }
 .jc1{
-    width: 200px;
+    width: max-content;
+    
 }
 .m{
     margin-top: 5px;
@@ -36,10 +41,11 @@
     flex-direction: column;
 }
 .width20{
-    width: 70%;
+    width: 100%;
 }
 .w{
-    width: 120px;
+    width: max-content;
+    margin-left: 20px;
 }
 .More{
     position: relative;
@@ -57,4 +63,12 @@ height: 60px;
     text-overflow: ellipsis;
     height: max-content;
     background-color: white;
+}
+
+.hide{
+    display: none;
+}
+.show{
+  font-size: 18px; 
+
 }

@@ -11,7 +11,8 @@ const axiosInstance = axios.create({
 export const addProperty =(data) => {
     console.log("firstdata",data,`${import.meta.env.VITE_API_BASE_URL}/api`)
     
-   return axiosInstance.post("/addproperty",data).then((response) => {
+   return axiosInstance.post("/property",data).then((response) => {
+    console.log("first",response.data)
        return response.data;
     }).catch ((error)=> {
         console.log("error",error);
@@ -19,7 +20,7 @@ export const addProperty =(data) => {
 }
 
 export const getproperty =()=>{
-    return axiosInstance.get("/getproperty").then((response) => {
+    return axiosInstance.get("/property").then((response) => {
         return response.data;
     }
     ).catch((error) => {
