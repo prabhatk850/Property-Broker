@@ -17,7 +17,7 @@ import Photos from './Component/Postproperty/photos'
 import Price from './Component/Postproperty/price'
 import Thankyou from './Component/thankyou'
 import Amenities from './Component/Postproperty/amenities'
-import Login from './Component/Auth/login'
+
 
 
 
@@ -41,7 +41,7 @@ function Router () {
         <Route path='/addproperty/photos' element={<Photos/>} />
         <Route path='/addproperty/price' element={<Price/>} />
         <Route path='/addproperty/amenities' element={<Amenities/>} />
-        <Route path='/login' element={<Login/>} />
+        
 
       </Routes>
       <Footer/>
