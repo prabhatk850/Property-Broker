@@ -5,7 +5,6 @@ import { CiHeart } from "react-icons/ci";
 import Property from '../Home/property';
 import { useNavigate,useLocation } from 'react-router-dom';
 import Info from '../info';
-import { getproperty } from '../Services/propertypost';
 
 
 const Wrapper =styled.div`
@@ -147,6 +146,7 @@ outline: none;
 border: 1px solid lightgray;
 background-color: aliceblue;
 padding: 5px;
+resize: none;
 `;
 
 
@@ -224,18 +224,14 @@ return formattedDate;
 
   // ];
 
-const [propertyDes, setPropertyDes] = useState([]);
+// const [propertyDes, setPropertyDes] = useState([]);
 
 useEffect(() => {
   window.scrollTo(0, 0);
-  getproperty().then((data) => {
-  setPropertyDes(data);
-  console.log("first",data)
-  });
 },[]);
 
-const handlegovtcharges=(e)=>{
-  if(e.taxAndGovtCharges==='true'){
+const handlegovtcharges=()=>{
+  if(taxAndGovtCharges==='true'){
     const govtcharges= " + Govt Charges"; 
     return govtcharges;
   }else{
@@ -243,8 +239,8 @@ const handlegovtcharges=(e)=>{
     return govtcharges;
   }
 }
-const handlenegotiable=(e)=>{
-  if(e.priceNegotiable==='true'){
+const handlenegotiable=()=>{
+  if(priceNegotiable==='true'){
     const negotiable= "Negotiable"; 
     return negotiable;
   }else{
@@ -253,8 +249,8 @@ const handlenegotiable=(e)=>{
   }
 }
 
-const handleallinclusive=(e)=>{
-  if(e.allInclusivePrice==='true'){
+const handleallinclusive=()=>{
+  if(allInclusivePrice==='true'){
     const allinclusive= "All Inclusive"; 
     return allinclusive;
   }
@@ -264,10 +260,10 @@ const handleallinclusive=(e)=>{
   }
 }
 
-function FurnishTypeList({ data }) {
+function FurnishTypeList(data) {
   return (
     <ul>
-      {data.furnishType.map((item, index) => {
+      {data.map((item, index) => {
         const key = Object.keys(item)[0];
         return <div className='ft' key={index}>{`${key}: ${item[key]}`}</div>;
       })}
@@ -310,18 +306,21 @@ const [show, setShow] = useState(true);
  const navigate=useNavigate();
 
 
+ const { state } = useLocation();
+ const {id,dateOfUpload,area,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bathroom,propertyType,propertyFor,appartmentName,locality,location,postedBy,pic,balcony,propertyFloor,totalFloor,facing,ageOfProperty,ownerShip,flooring,furnishing,closedParking,waterSource,discription,furnishType,profilePicture,taxAndGovtCharges,priceNegotiable,allInclusivePrice, firstName}=state
+
  const [showInfo,setShowInfo]=useState(false);
  const handleInfo=()=>{
   setShowInfo(!showInfo) 
+  console.log("first",area)
+  console.log("first",area.type.carpetArea[0])
 };
-const { state } = useLocation();
-const {id,dateOfUpload,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bathroom,propertyType,propertyFor,appartmentName,locality,location,postedBy,pic,balcony,propertyFloor,totalFloor,facing,ageOfProperty,ownerShip,flooring,furnishing,closedParking,waterSource,discription,furnishType,profilePicture, firstName}=state
 
   return (
     <Wrapper>
       {showInfo && <Info  showInfo= {showInfo} setShowInfo={setShowInfo}/>}
      
-      {propertyDes.map((e) =>(
+      
         <Div key={id}>
           
       <div style={{margin:"30px 100px 30px 0",display:"flex",justifyContent:"end"}}>Posted on {convertTodate(dateOfUpload)}<div className='Vsep'></div><div>{propertyAvailable}</div></div>
@@ -362,9 +361,9 @@ const {id,dateOfUpload,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bath
           <div style={{width:"50%",margin:"20px"}}>
             <div className='df b'>
             <div style={{width:"50%"}}>
-            {/* <Heading> Area</Heading>
-            <div>Super Built-up Area:&nbsp;{area.type.superBuiltupArea[0]} {area.type.superBuiltupArea[1]}</div>
-            <div>Carpet Area:&nbsp;{area.type.carpetArea[0]} {area.type.carpetArea[1]}</div> */}
+            <Heading> Area</Heading>
+            <div>Super Built-up Area:&nbsp; {area.type.superBuiltUpArea[0]} {area.type.superBuiltUpArea[1]}</div>
+            <div>Carpet Area:&nbsp; {area.type.carpetArea[0]} {area.type.carpetArea[1]}</div>
             </div>
             <div>
               <Heading>Configuration</Heading>
@@ -376,8 +375,8 @@ const {id,dateOfUpload,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bath
             <div className='df b'>
             <div style={{width:"50%"}}>
             <Heading> Price</Heading>
-            <div>{formatPrice(expectedPrice)}{handlegovtcharges(e)} {handleallinclusive(e)}</div>
-            <div>@ {pricePerSqft} per Sq.ft. ({handlenegotiable(e)}) </div>
+            <div>{formatPrice(expectedPrice)}{handlegovtcharges()} {handleallinclusive()}</div>
+            <div>@ {pricePerSqft} per Sq.ft. ({handlenegotiable()}) </div>
             </div>
             <div>
               <Heading>Address</Heading>
@@ -421,7 +420,7 @@ const {id,dateOfUpload,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bath
         <div style={{fontWeight:"500",marginTop:"10px",fontSize:"15px"}} onClick={(e)=>handleShow(e.id,e)}> View {expend}</div>
         <div style={{marginTop:"30px"}} className='seperetor b'></div> 
         <Heading1 className='b'>{furnishing}</Heading1>
-        <div>{furnishType && <FurnishTypeList data={e} />}</div>
+        <div>{FurnishTypeList(furnishType)}</div>
           <div style={{marginTop:"30px"}} className='seperetor b'></div>
           <OwnerDeatils>
             <div style={{width:"50%"}}>
@@ -484,7 +483,7 @@ const {id,dateOfUpload,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bath
               </div>
               <div>
                 <div>
-                  <Input2 type='text' placeholder='Enter your Message'></Input2>
+                  <Input2 as="textarea" placeholder='Enter your Message'></Input2>
                 </div>
               </div>
             </div>
@@ -498,7 +497,7 @@ const {id,dateOfUpload,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bath
       </Div1>
 
         </Div>
-))}
+
     </Wrapper>
   )
 }

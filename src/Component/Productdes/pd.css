@@ -72,3 +72,7 @@ height: 60px;
   font-size: 18px; 
 
 }
+.center{
+    align-items: center;
+    justify-content: center;
+}

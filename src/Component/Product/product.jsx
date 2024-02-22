@@ -217,6 +217,8 @@ return formattedDate;
           "furnishType":e.furnishType,
           "ageOfProperty":e.ageOfProperty,
           "waterSource":e.waterSource,
+          "allInclusivePrice":e.allInclusivePrice,
+          "priceNegotiable":e.priceNegotiable,
 
         }})}>          
         <div>

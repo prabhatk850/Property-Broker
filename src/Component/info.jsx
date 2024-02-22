@@ -143,11 +143,11 @@ function Info({showInfo,setShowInfo}) {
                 <div className='df b'>
                 <div className='jc1'>Your Reason to buy is:</div>
                 <div className='df w'>
-                  <input  type='radio' name='buyer' value='true' onChange={(e)=>{setBuyReason(e.target.value)}} onClick={handleBuyer}></input>
+                  <input  type='radio' name='buyReason' value='true' onChange={(e)=>{setBuyReason(e.target.value)}} onClick={handleBuyer}></input>
                   <div style={{marginLeft:"5px",fontSize:"15px"}}>Investment</div>
                 </div>
                 <div className='df w'>
-                  <input type='radio' name='buyer' value='false' onChange={(e)=>{setBuyReason(e.target.value)}}></input>
+                  <input type='radio' name='buyReason' value='false' onChange={(e)=>{setBuyReason(e.target.value)}}></input>
                   <div style={{marginLeft:"5px",fontSize:"15px"}}> Self Use</div>
                 </div>
               </div>

@@ -1,8 +1,9 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
 import { FaHouseChimney, FaUserNinja } from "react-icons/fa6";
 import { TiThMenu } from "react-icons/ti";
 import { useNavigate } from 'react-router-dom'
+import SignUp from '../Auth/signup';
 
 
 
@@ -132,12 +133,20 @@ margin-right: 50px;
 
 
 
+
 function Header() {
+
+
+  const [showSignUp, setShowSignUp] = useState(false);
+const handleSignUp = () => {
+  setShowSignUp(!showSignUp);
+}
 
   const navigate = useNavigate();
 
   return (
     <Wrapper>
+       {showSignUp && <SignUp  showSignUp= {showSignUp} setShowSignUp={setShowSignUp}/>}
       <div onClick={()=>{navigate("/")}} style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
       <Logo />
       <Name>Property Broker</Name>
@@ -149,7 +158,7 @@ function Header() {
         <Div>
         <Login/>
         <User>
-          <Heading onClick={()=>{navigate("/Auth")}}>Login / Register</Heading>
+          <Heading onClick={(e)=>{handleSignUp()}}>Login / Register</Heading>
           <SubHeading onClick={()=>{navigate("/profile")}} >Modify Profile</SubHeading>
           <SubHeading onClick={()=>{navigate("/shortlist")}}>Shortlisted</SubHeading>
           <SubHeading onClick={()=>{navigate('/wishlist')}}>Wishlist</SubHeading>

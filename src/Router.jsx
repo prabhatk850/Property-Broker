@@ -6,7 +6,6 @@ import Header from './Component/Header'
 import Footer from './Component/Footer'
 import Product from './Component/Product'
 import Productdes from './Component/Productdes'
-import Auth from './Component/Auth'
 import Profile from './Component/User/profile'
 import Wishlist from './Component/User/wishlist'
 import Shortlist from './Component/User/shortlist'
@@ -18,6 +17,7 @@ import Photos from './Component/Postproperty/photos'
 import Price from './Component/Postproperty/price'
 import Thankyou from './Component/thankyou'
 import Amenities from './Component/Postproperty/amenities'
+import Login from './Component/Auth/login'
 
 
 
@@ -31,7 +31,6 @@ function Router () {
         <Route path='/thankyou' element={<Thankyou />} />
         <Route path='/product' element={<Product/>} />
         <Route path='/product-description' element={<Productdes/>} />
-        <Route path='/Auth' element={<Auth/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/wishlist' element={<Wishlist/>} />
         <Route path='/shortlist' element={<Shortlist/>} />
@@ -42,6 +41,7 @@ function Router () {
         <Route path='/addproperty/photos' element={<Photos/>} />
         <Route path='/addproperty/price' element={<Price/>} />
         <Route path='/addproperty/amenities' element={<Amenities/>} />
+        <Route path='/login' element={<Login/>} />
 
       </Routes>
       <Footer/>
