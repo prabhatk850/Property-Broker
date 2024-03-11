@@ -184,7 +184,7 @@ return formattedDate;
       </Div1>
     <InnerContainer>
     <Grid >
-          {propertyList.map((e)=>( 
+          {propertyList?.map((e)=>( 
         <Div key={e.id} onClick={()=>navigate("/product-description",{state:{
           "id":e.id,
           "appartmentName":e.appartmentName,

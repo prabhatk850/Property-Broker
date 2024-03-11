@@ -8,25 +8,23 @@ import { FcGoogle } from 'react-icons/fc';
 const Wrapper = styled.div`
 z-index: 10;
 position: fixed;
-backdrop-filter:blur(10px);
-background-color: rgba(102, 101, 101, 0.9);
+background-color: rgba(157, 157, 157, 0.9);
 top: 0;
 left: 0;
 width: 100%;
 min-height:100% ;
 height: auto;
-opacity: 0.9;
 display: flex;
 align-items: center;
 justify-content: center;
+backdrop-filter: blur(2px);
 `;
 
 const InnerContainer = styled.div`
 border-radius: 10px;
 width: 35%;
-opacity: 1;
 z-index: 2;
-background-color: white;
+background: #fff;
 padding: 50px;
 `;
 
@@ -114,7 +112,7 @@ const handleLogin =()=>{
 }
   return (
     <Wrapper>
-     
+      <>
      {showLogin ? 
       <InnerContainer>
           <HeaderContainer>
@@ -155,7 +153,7 @@ const handleLogin =()=>{
             <FooterText>Create New Account <FooterLink onClick={handleLogin}>SignUp</FooterLink></FooterText>
           </FooterContainer>
         </InnerContainer>}
-       
+        </>
     </Wrapper>
   )
 }

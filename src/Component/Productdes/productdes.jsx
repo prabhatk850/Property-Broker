@@ -95,7 +95,7 @@ background-color: #f8f2f2;
 grid-template-columns: repeat(1, minmax(50%, 1fr));
 `;
 
-const Image = styled.div`
+const Image = styled.img`
 height:fixed;
 width: 400px;
 margin-right: 30px;
@@ -307,7 +307,7 @@ const [show, setShow] = useState(true);
 
 
  const { state } = useLocation();
- const {id,dateOfUpload,area,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bathroom,propertyType,propertyFor,appartmentName,locality,location,postedBy,pic,balcony,propertyFloor,totalFloor,facing,ageOfProperty,ownerShip,flooring,furnishing,closedParking,waterSource,discription,furnishType,profilePicture,taxAndGovtCharges,priceNegotiable,allInclusivePrice, firstName}=state
+ const {id,dateOfUpload,area,propertyAvailable,expectedPrice,pricePerSqft,bedroom,bathroom,propertyType,propertyFor,appartmentName,locality,location,postedBy,balcony,propertyFloor,totalFloor,facing,ageOfProperty,ownerShip,flooring,furnishing,closedParking,waterSource,discription,furnishType,profilePicture,taxAndGovtCharges,priceNegotiable,allInclusivePrice, firstName}=state
 
  const [showInfo,setShowInfo]=useState(false);
  const handleInfo=()=>{
@@ -357,7 +357,7 @@ const [show, setShow] = useState(true);
         
         <Grid>
         <div className='df'>
-          <Image style={{backgroundImage: `url(${pic})`, backgroundSize:"cover"}}></Image>
+          <Image src="/logo.png"></Image>
           <div style={{width:"50%",margin:"20px"}}>
             <div className='df b'>
             <div style={{width:"50%"}}>

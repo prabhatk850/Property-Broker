@@ -1,16 +1,26 @@
 import React, { useState } from 'react'
 import Slider from "@mui/material/Slider";
 import styled from 'styled-components'
-import { Container } from '@mui/material';
+// import { Container } from '@mui/material';
 import Property from './property';
 import { useNavigate } from 'react-router-dom';
 
 
 
-
+const Container = styled.div`
+width: 100%;
+background-image: url(https://nispand-prod.oss-ap-south-1.aliyuncs.com/Images/movingWave.gif);
+background-size: cover;
+background-repeat: no-repeat;
+background-position:fixed;
+`;
 
 const Wrapper = styled.div`
 width: 100%;
+background-image: url(https://nispand-prod.oss-ap-south-1.aliyuncs.com/Images/movingWave.gif);
+background-size: cover;
+background-repeat: no-repeat;
+background-position:fixed;
 @media (max-width: 767px) {
 display: none;
 }
